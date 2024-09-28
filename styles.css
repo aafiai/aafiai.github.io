@@ -1,133 +1,164 @@
-/* Default font */
 body {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
-    font-family: 'Roboto Slab', serif; /* Use Roboto Slab */
-    background-color: #121212;
-    color: white;
-}
-
-header {
-    background-color: #1e1e1e;
-    padding: 20px;
-    text-align: center;
-}
-
-nav ul {
-    list-style-type: none;
     padding: 0;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-section {
-    padding: 20px;
-}
-
-footer {
-    background-color: #1e1e1e;
-    text-align: center;
-    padding: 10px;
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
 }
 
 .light-mode {
-    background-color: white;
-    color: black;
+    background-color: #f0f0f0;
+    color: #333333;
 }
 
-.light-mode header {
-    background-color: #f1f1f1;
-    color: black;
-}
-
-.light-mode .work-card, .light-mode .project-card, .light-mode .education-card {
-    background-color: white;
-    color: black;
-    border: 1px solid #ddd;
-}
-
-/* Work Experience Card Styles */
-.work-experience-container {
-    display: block;
-}
-
-.work-card {
-    background-color: #444;
+header {
+    background-color: #333;
     padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+header .navbar {
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
+    align-items: center;
 }
 
-.work-card h3 {
-    margin: 0;
-    font-size: 1.2em;
+header .logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-/* Education Card Styles */
-.education-card {
-    background-color: #444;
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 5px;
+header .nav-links {
+    display: flex;
+    list-style: none;
+}
+
+header .nav-links li {
+    margin-left: 20px;
+}
+
+header .nav-links li a, .toggle-button {
+    color: #fff;
+    text-decoration: none;
     cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    justify-content: space-between;
+    transition: color 0.3s ease;
 }
 
-/* Project Card Styles */
-.project-container {
-    display: flex;
-    gap: 20px;
+.toggle-button {
+    background: none;
+    border: none;
+    font-size: 20px;
 }
 
-.project-card {
-    background-color: #444;
-    padding: 20px;
-    width: 45%;
+#hero {
+    background: linear-gradient(to right, #1a73e8, #4285f4);
+    color: #fff;
+    padding: 100px 20px;
     text-align: center;
-    transition: 0.3s;
-    cursor: pointer;
 }
 
-/* Modal Styles */
+#hero .hero-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: center;
+}
+
+.skill {
+    margin: 0 20px;
+}
+
+.progress-bar {
+    background: #333;
+    width: 200px;
+    height: 10px;
+    margin-top: 10px;
+}
+
+.progress-bar span {
+    display: block;
+    height: 10px;
+    background: #4285f4;
+}
+
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    height: It seems that part of the CSS content got cut off. Here's the continuation and the complete code to ensure proper styling for the sections, cards, popups, and more.
+
+### Continuation of `styles.css`
+```css
+height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .modal-content {
-    background-color: white;
+    background-color: #fff;
+    color: #333;
     margin: 15% auto;
     padding: 20px;
-    border-radius: 10px;
-    width: 80%;
+    border: 1px solid #888;
+    width: 60%;
 }
 
-.dark-mode .modal-content {
+.modal-content.dark-mode {
     background-color: #333;
-    color: white;
+    color: #fff;
 }
 
 .close {
+    color: #aaa;
     float: right;
     font-size: 28px;
+    font-weight: bold;
 }
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.project-details {
+    display: none;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.project-details.dark-mode {
+    background-color: #2c2c2c;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
