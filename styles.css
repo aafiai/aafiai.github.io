@@ -1,87 +1,53 @@
-/* General Styling */
+/* Default styles */
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    background-color: #121212; /* Dark background */
+    color: white; /* Light text */
 }
 
-/* Light Mode */
-body.light-mode {
-    background-color: #ffffff;
-    color: #333;
-}
-
-header.light-mode {
-    background-color: #4CAF50;
-}
-
-section.light-mode {
-    background-color: #f4f4f4;
-}
-
-footer.light-mode {
-    background-color: #333;
-    color: white;
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #1e1e1e;
-    color: #f4f4f4;
-}
-
-header.dark-mode {
-    background-color: #2a2a2a;
-}
-
-section.dark-mode {
-    background-color: #333;
-}
-
-footer.dark-mode {
-    background-color: #444;
-    color: #f4f4f4;
-}
-
-/* Header Section */
 header {
+    background-color: #1e1e1e; /* Dark header */
+    padding: 20px;
     text-align: center;
-    padding: 50px 0;
 }
 
-header nav ul {
+nav ul {
     list-style-type: none;
-    margin: 0;
     padding: 0;
 }
 
-header nav ul li {
+nav ul li {
     display: inline;
     margin: 0 15px;
 }
 
-header nav ul li a {
-    color: inherit; /* Inherit color for light/dark mode */
+nav ul li a {
+    color: white;
     text-decoration: none;
 }
 
-/* Sections */
 section {
     padding: 20px;
-    margin: 20px 0;
 }
 
-.project {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin: 10px 0;
-}
-
-/* Footer */
 footer {
+    background-color: #1e1e1e; /* Dark footer */
     text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
+    padding: 10px;
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    background-color: white; /* Light background */
+    color: black; /* Dark text */
+}
+
+body.light-mode header,
+body.light-mode footer {
+    background-color: #f1f1f1; /* Light header/footer */
+}
+
+body.light-mode nav ul li a {
+    color: black; /* Dark link color */
 }
