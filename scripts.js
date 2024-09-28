@@ -1,51 +1,78 @@
-// Theme toggle function
+// Toggle between dark and light mode
 const toggleButton = document.getElementById('themeToggle');
-const body = document.body;
-
 toggleButton.addEventListener('click', () => {
+    const body = document.body;
     body.classList.toggle('light-mode');
-    body.classList.toggle('dark-mode');
-    
-    const isLightMode = body.classList.contains('light-mode');
-    
-    // Update the modal to reflect the current theme
-    const modalContent = document.querySelector('.modal-content');
-    modalContent.classList.toggle('light-mode', isLightMode);
-    modalContent.classList.toggle('dark-mode', !isLightMode);
+
+    // Change icon based on the theme
+    if (body.classList.contains('light-mode')) {
+        toggleButton.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon for light mode
+    } else {
+        toggleButton.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for dark mode
+    }
 });
 
-// Show modal function
-function showModal(degree) {
-    const modal = document.getElementById('modal');
-    const modalCompany = document.getElementById('modalCompany');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDuration = document.getElementById('modalDuration');
-    const modalResponsibilities = document.getElementById('modalResponsibilities');
+// Modal functionality
+function openModal(jobId) {
+    const modal = document.getElementById('myModal');
+    const modalCompany = document.getElementById('modal-company');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDuration = document.getElementById('modal-duration');
+    const modalResponsibilities = document.getElementById('modal-responsibilities');
 
-    // Fill modal with work experience or education details
-    if (degree === 'degree1') {
-        modalCompany.textContent = 'Company Name 1 or Degree Name 1';
-        modalTitle.textContent = 'Position Title 1 or Institution Name 1';
-        modalDuration.textContent = 'Duration: Duration 1';
-        modalResponsibilities.textContent = 'Details about Work Experience or Degree 1.';
-    } else if (degree === 'degree2') {
-        modalCompany.textContent = 'Company Name 2 or Degree Name 2';
-        modalTitle.textContent = 'Position Title 2 or Institution Name 2';
-        modalDuration.textContent = 'Duration: Duration 2';
-        modalResponsibilities.textContent = 'Details about Work Experience or Degree 2.';
-    }
+    // Example data, replace with your actual data
+    const jobData = {
+        job1: {
+            company: "Company Name 1",
+            title: "Position Title 1",
+            duration: "Month Year - Month Year",
+            responsibilities: "Responsibilities for Position Title 1."
+        },
+        job2: {
+            company: "Company Name 2",
+            title: "Position Title 2",
+            duration: "Month Year - Month Year",
+            responsibilities: "Responsibilities for Position Title 2."
+        },
+        degree1: {
+            company: "Degree Title 1",
+            title: "Institution Name 1",
+            duration: "Year - Year",
+            responsibilities: "Details about Degree Title 1."
+        },
+        degree2: {
+            company: "Degree Title 2",
+            title: "Institution Name 2",
+            duration: "Year - Year",
+            responsibilities: "Details about Degree Title 2."
+        },
+    };
+
+    // Set modal content based on jobId
+    modalCompany.textContent = jobData[jobId].company;
+    modalTitle.textContent = jobData[jobId].title;
+    modalDuration.textContent = jobData[jobId].duration;
+    modalResponsibilities.textContent = jobData[jobId].responsibilities;
 
     modal.style.display = "block"; // Show the modal
 }
 
-// Close modal
-document.querySelector('.close').onclick = function() {
-    document.getElementById('modal').style.display = "none";
+function closeModal() {
+    const modal = document.getElementById('myModal');
+    modal.style.display = "none"; // Hide the modal
 }
 
-// Function to toggle project details
-function toggleProjectDetails(project) {
-    const projectDetails = document.getElementById(project);
+// Close modal when user clicks outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('myModal');
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Toggle project details
+function toggleDetails(projectId) {
+    const projectDetails = document.getElementById(projectId);
     if (projectDetails.style.display === "none") {
         projectDetails.style.display = "block";
     } else {
@@ -53,10 +80,5 @@ function toggleProjectDetails(project) {
     }
 }
 
-// Close modal when clicking outside of it
-window.onclick = function(event) {
-    const modal = document.getElementById('modal');
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-}
+// Update the year in the footer dynamically
+document.getElementById('year').textContent = new Date().getFullYear();
