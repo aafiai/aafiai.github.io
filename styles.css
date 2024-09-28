@@ -75,7 +75,7 @@ section {
 }
 
 .work-card, .education-card {
-    background: rgba(255, 255, 255, 0.1); /* Off-white for light mode */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent for dark mode */
     padding: 20px;
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
@@ -86,7 +86,7 @@ section {
 }
 
 .dark-mode .work-card, .dark-mode .education-card {
-    background: rgba(100, 100, 100, 0.9); /* Grey for dark mode */
+    background: rgba(100, 100, 100, 0.9); /* Darker grey for dark mode */
 }
 
 .light-mode .work-card, .light-mode .education-card {
