@@ -65,3 +65,47 @@ section {
     background-color: #ffffff; /* Light section background */
     color: black; /* Dark section text */
 }
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    max-width: 800px; /* Adjust the width as needed */
+    margin: auto;
+    padding: 20px 0;
+}
+
+.timeline-item {
+    padding: 10px;
+    border-left: 2px solid #4caf50; /* Green line */
+    position: relative;
+    margin: 20px 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -5px; /* Adjust the position */
+    top: 10px; /* Center the circle */
+    width: 12px;
+    height: 12px;
+    background-color: #4caf50; /* Circle color */
+    border-radius: 50%;
+    border: 2px solid white; /* Optional border */
+}
+
+.timeline-content {
+    margin-left: 20px; /* Indentation */
+    background: #f1f1f1; /* Light background for content */
+    padding: 15px;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h3 {
+    margin: 0;
+    color: #333; /* Dark text color */
+}
+
+.timeline-content p {
+    margin: 5px 0;
+}
