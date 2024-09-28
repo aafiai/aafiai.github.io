@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aafia Iqbal's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
 </head>
 <body class="dark-mode"> <!-- Set default mode to dark -->
     <!-- Header Section -->
@@ -17,7 +18,7 @@
             </ul>
         </nav>
         <h1>Welcome to My Portfolio</h1>
-        <button id="themeToggle">Switch to Light Mode</button> <!-- Change button text -->
+        <button id="themeToggle"><i class="fas fa-sun"></i></button> <!-- Sun icon -->
     </header>
 
     <!-- About Section -->
@@ -83,11 +84,11 @@
                 section.classList.toggle('dark-mode');
             });
 
-            // Update button text based on the current mode
+            // Update button icon based on the current mode
             if (body.classList.contains('dark-mode')) {
-                themeToggle.textContent = 'Switch to Light Mode';
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon
             } else {
-                themeToggle.textContent = 'Switch to Dark Mode';
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon
             }
         };
     </script>
