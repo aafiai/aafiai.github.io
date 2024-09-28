@@ -75,13 +75,17 @@ section {
 }
 
 .work-card {
-    background: #f1f1f1; /* Light background for cards */
+    background: rgba(255, 255, 255, 0.1); /* Off-white for light mode */
     padding: 20px;
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     width: 300px; /* Fixed width for cards */
     transition: transform 0.3s; /* Animation */
     cursor: pointer; /* Pointer cursor on hover */
+}
+
+.dark-mode .work-card {
+    background: rgba(100, 100, 100, 0.9); /* Grey for dark mode */
 }
 
 .work-card:hover {
@@ -104,12 +108,4 @@ section {
 /* Modal Styles */
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0
-
+    position: fixed;
