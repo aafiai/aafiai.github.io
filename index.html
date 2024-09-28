@@ -3,77 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Aafia Iqbal's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
 </head>
-<body>
-    <header>
-        <h1>My Portfolio</h1>
-        <button id="toggle-theme">Toggle Dark/Light Mode</button>
+<body class="dark-mode"> <!-- Default to dark mode -->
+    <!-- Header Section -->
+    <header class="header">
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work-experience">Work Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Welcome to My Portfolio</h1>
+        <button id="themeToggle"><i class="fas fa-sun"></i></button> <!-- Sun icon for theme toggle -->
     </header>
-    <nav>
-        <ul>
-            <li><a href="#work-experience">Work Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#projects">Projects</a></li>
-        </ul>
-    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi, I am Aafia Iqbal, a passionate web developer and designer. I enjoy creating responsive and interactive websites, and I am always eager to learn new technologies!</p>
+    </section>
+
+    <!-- Work Experience Section -->
     <section id="work-experience">
         <h2>Work Experience</h2>
         <div class="work-experience-container">
             <div class="work-card" onclick="openModal('job1')">
-                <h3>Company Name 1</h3>
-                <p>Position Title 1 | <span class="date">Duration</span></p>
+                <h3>Company Name 1 | Position Title 1 | Duration 1</h3>
             </div>
             <div class="work-card" onclick="openModal('job2')">
-                <h3>Company Name 2</h3>
-                <p>Position Title 2 | <span class="date">Duration</span></p>
+                <h3>Company Name 2 | Position Title 2 | Duration 2</h3>
             </div>
         </div>
     </section>
+
+    <!-- Education Section -->
     <section id="education">
         <h2>Education</h2>
-        <div class="work-experience-container">
-            <div class="work-card" onclick="openModal('edu1')">
-                <h3>Degree Name 1</h3>
-                <p>Institution Name 1 | <span class="date">Duration</span></p>
+        <div class="education-container">
+            <div class="education-card" onclick="openModal('degree1')">
+                <h3>University 1 | Degree Title 1 | Duration 1</h3>
             </div>
-            <div class="work-card" onclick="openModal('edu2')">
-                <h3>Degree Name 2</h3>
-                <p>Institution Name 2 | <span class="date">Duration</span></p>
+            <div class="education-card" onclick="openModal('degree2')">
+                <h3>University 2 | Degree Title 2 | Duration 2</h3>
             </div>
         </div>
     </section>
+
+    <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
-        <div class="projects-container">
+        <div class="project-container">
             <div class="project-card">
                 <h3>Project Title 1</h3>
-                <button class="dropdown" onclick="toggleProjectDetails(event)">▼</button>
-                <div class="project-details" style="display: none;">
-                    <p>Project details go here.</p>
-                </div>
             </div>
             <div class="project-card">
                 <h3>Project Title 2</h3>
-                <button class="dropdown" onclick="toggleProjectDetails(event)">▼</button>
-                <div class="project-details" style="display: none;">
-                    <p>Project details go here.</p>
-                </div>
             </div>
         </div>
     </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: youremail@example.com</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/aafiaiqbal/" target="_blank">Aafia Iqbal</a></p>
+    </section>
+
+    <!-- Footer Section -->
     <footer>
-        <p>© 2024 My Portfolio</p>
+        <p>&copy; <span id="year"></span> Aafia Iqbal</p>
     </footer>
 
-    <!-- Modal -->
+    <!-- Modal Structure -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h3 id="modal-company"></h3>
-            <h4 id="modal-title"></h4>
+            <p id="modal-title"></p>
             <p id="modal-duration"></p>
             <p id="modal-responsibilities"></p>
         </div>
