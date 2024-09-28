@@ -32,14 +32,14 @@
         <h2>Work Experience</h2>
         <div class="work-experience-container">
             <div class="work-card" onclick="openModal('job1')">
-                <span class="company-name">Company Name 1</span> | 
-                <span class="position-title">Position Title 1</span> | 
-                <span class="duration">Duration: Month Year - Month Year</span>
+                <h3 class="company-name">Company Name 1</h3>
+                <p class="position-title">Position Title 1</p>
+                <p class="date">Month Year - Month Year</p>
             </div>
             <div class="work-card" onclick="openModal('job2')">
-                <span class="company-name">Company Name 2</span> | 
-                <span class="position-title">Position Title 2</span> | 
-                <span class="duration">Duration: Month Year - Month Year</span>
+                <h3 class="company-name">Company Name 2</h3>
+                <p class="position-title">Position Title 2</p>
+                <p class="date">Month Year - Month Year</p>
             </div>
             <!-- Add more work cards as needed -->
         </div>
@@ -111,10 +111,18 @@
         // Function to open the modal
         function openModal(job) {
             const modal = document.getElementById("myModal");
+            const modalContent = document.querySelector(".modal-content"); // Select modal content
             const modalCompany = document.getElementById("modal-company");
             const modalTitle = document.getElementById("modal-title");
             const modalDuration = document.getElementById("modal-duration");
             const modalResponsibilities = document.getElementById("modal-responsibilities");
+
+            // Set modal background color based on the current body class
+            if (document.body.classList.contains('dark-mode')) {
+                modalContent.style.backgroundColor = "#1e1e1e"; // Dark background for modal in dark mode
+            } else {
+                modalContent.style.backgroundColor = "#fefefe"; // White background for modal in light mode
+            }
 
             // Fill modal with job details
             if (job === 'job1') {
