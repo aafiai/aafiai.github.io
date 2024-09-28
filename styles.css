@@ -69,36 +69,43 @@ section {
 /* Timeline Styles */
 .timeline {
     position: relative;
-    max-width: 800px; /* Adjust the width as needed */
+    max-width: 900px; /* Adjust the width as needed */
     margin: auto;
     padding: 20px 0;
+    display: flex;
+    justify-content: space-between; /* Space items evenly */
 }
 
 .timeline-item {
-    padding: 10px;
-    border-left: 2px solid #4caf50; /* Green line */
+    flex: 1; /* Make items flexible */
+    margin: 0 10px; /* Space between items */
     position: relative;
-    margin: 20px 0;
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: -5px; /* Adjust the position */
     top: 10px; /* Center the circle */
-    width: 12px;
-    height: 12px;
-    background-color: #4caf50; /* Circle color */
-    border-radius: 50%;
-    border: 2px solid white; /* Optional border */
+    left: 50%; /* Center line */
+    transform: translateX(-50%);
+    width: 2px; /* Line width */
+    height: 100%; /* Full height of the item */
+    background-color: #4caf50; /* Green line */
+    z-index: 1; /* Behind content */
 }
 
 .timeline-content {
-    margin-left: 20px; /* Indentation */
     background: #f1f1f1; /* Light background for content */
-    padding: 15px;
+    padding: 20px;
     border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative; /* For the z-index */
+    z-index: 2; /* Above the line */
+    transition: transform 0.3s; /* Animation */
+}
+
+.timeline-item:hover .timeline-content {
+    transform: scale(1.05); /* Scale on hover */
 }
 
 .timeline-content h3 {
@@ -108,4 +115,9 @@ section {
 
 .timeline-content p {
     margin: 5px 0;
+}
+
+.date {
+    font-weight: bold; /* Emphasize date */
+    color: #555; /* Grey color for dates */
 }
