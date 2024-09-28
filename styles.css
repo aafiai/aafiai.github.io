@@ -1,15 +1,32 @@
-/* Default styles */
 body {
+    font-family: 'Roboto Slab', serif;
     margin: 0;
-    font-family: 'Roboto Slab', serif; /* Updated font */
-    background-color: #121212; /* Dark background */
-    color: white; /* Light text */
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+.light-mode {
+    background-color: white;
+    color: black;
 }
 
 header {
-    background-color: #1e1e1e; /* Dark header */
+    background-color: #1e1e1e;
     padding: 20px;
     text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    margin-bottom: 20px;
 }
 
 nav ul {
@@ -19,150 +36,101 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
-nav ul li a {
+nav a {
     color: white;
     text-decoration: none;
 }
 
+#themeToggle {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+}
+
 section {
     padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
 }
 
-footer {
-    background-color: #1e1e1e; /* Dark footer */
-    text-align: center;
-    padding: 10px;
-}
-
-/* Light Mode Styles */
-body.light-mode {
-    background-color: white; /* Light background */
-    color: black; /* Dark text */
-}
-
-body.light-mode header,
-body.light-mode footer {
-    background-color: #f1f1f1; /* Light header/footer */
-}
-
-body.light-mode nav ul li a {
-    color: black; /* Dark link color */
-}
-
-/* Section styling */
-section {
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.dark-mode section {
-    background-color: #121212; /* Dark section background */
-}
-
-.light-mode section {
-    background-color: #ffffff; /* Light section background */
-    color: black; /* Dark section text */
-}
-
-/* Work Experience Card Styles */
-.work-experience-container {
+.work-experience-container,
+.education-container,
+.projects-container {
     display: flex;
-    flex-direction: column; /* Cards in one column */
-    gap: 10px; /* Space between cards */
+    flex-direction: column;
+    gap: 10px;
 }
 
-.work-card {
-    background: rgba(255, 255, 255, 0.1); /* Off-white for light mode */
-    padding: 10px; /* Adjusted padding */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    transition: transform 0.3s; /* Animation */
-    cursor: pointer; /* Pointer cursor on hover */
+.work-card,
+.education-card,
+.project-card {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.dark-mode .work-card {
-    background: rgba(100, 100, 100, 0.9); /* Grey for dark mode */
+.work-card:hover,
+.education-card:hover,
+.project-card:hover {
+    background-color: #333;
 }
 
-.work-card:hover {
-    transform: scale(1.05); /* Scale on hover */
+.project-details {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #1e1e1e;
+    color: white;
 }
 
-.work-card h3 {
-    margin: 0 0 5px; /* Space below the heading */
-    font-size: 1.5em; /* Larger font for Company Name */
-}
-
-.work-card .position-title {
-    margin: 5px 0; /* Space between paragraphs */
-    font-size: 1.2em; /* Medium font for Position Title */
-}
-
-.date {
-    font-weight: bold; /* Emphasize date */
-    color: #555; /* Grey color for dates */
-    font-size: 0.9em; /* Smaller font for Duration */
-}
-
-/* Modal Styles */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; 
-    z-index: 1000; /* Ensure modal is on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .modal-content {
-    background-color: white; /* Default to light mode */
-    margin: 15% auto; /* 15% from the top and centered */
+    background-color: #fefefe;
+    margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888; /* Border */
-    width: 80%; /* Could be more or less, depending on screen size */
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.dark-mode .modal-content {
-    background-color: #333; /* Dark background for dark mode */
-    color: white; /* Light text */
+.modal-content.dark-mode {
+    background-color: #121212; /* Dark modal background */
+    color: white; /* Light modal text */
 }
 
-/* Project Section Styles */
-.projects-container {
-    display: flex;
-    flex-wrap: wrap; /* Allow projects to wrap */
-    justify-content: space-between; /* Space between projects */
+.modal-content.light-mode {
+    background-color: white; /* Light modal background */
+    color: black; /* Dark modal text */
 }
 
-.project-card {
-    background: rgba(255, 255, 255, 0.1); /* Off-white for light mode */
-    padding: 10px; /* Adjusted padding */
-    border-radius: 10px; /* Rounded corners */
-    width: calc(50% - 10px); /* Two projects per row */
-    margin-bottom: 10px; /* Space below */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-.dark-mode .project-card {
-    background: rgba(100, 100, 100, 0.9); /* Grey for dark mode */
-}
-
-.dropdown-content {
-    display: none; /* Hidden by default */
-    padding: 10px;
-}
-
-.dropdown-btn {
-    background: transparent;
-    border: none;
-    color: inherit;
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
     cursor: pointer;
-}
-
-.dropdown-content.show {
-    display: block; /* Show on click */
 }
