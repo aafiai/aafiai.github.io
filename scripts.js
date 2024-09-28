@@ -1,62 +1,58 @@
-// Toggle theme
-const toggleButton = document.getElementById("toggle-theme");
-toggleButton.addEventListener("click", function () {
-    document.body.classList.toggle("light-mode");
-});
+// Dynamic year
+document.getElementById('year').textContent = new Date().getFullYear();
 
-// Function to open the modal
-function openModal(job) {
+// Theme toggle functionality
+const themeToggle = document.getElementById('themeToggle');
+themeToggle.onclick = function () {
+    document.body.classList.toggle('dark-mode');
+    document.body.classList.toggle('light-mode');
+
+    // Update button icon based on the current mode
+    if (document.body.classList.contains('dark-mode')) {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for dark mode
+    } else {
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon for light mode
+    }
+};
+
+// Modal functionality for Work Experience, Education, and Projects
+function openModal(content) {
     const modal = document.getElementById("myModal");
-    const modalContent = document.querySelector('.modal-content'); // Select modal content
     const modalCompany = document.getElementById("modal-company");
     const modalTitle = document.getElementById("modal-title");
     const modalDuration = document.getElementById("modal-duration");
     const modalResponsibilities = document.getElementById("modal-responsibilities");
 
-    // Fill modal content based on the job clicked
-    if (job === 'job1') {
-        modalCompany.textContent = 'Company Name 1';
-        modalTitle.textContent = 'Position Title 1';
-        modalDuration.textContent = 'Duration: Month Year - Month Year';
-        modalResponsibilities.textContent = 'Responsibilities: Briefly explain your role, key responsibilities, and achievements.';
-    } else if (job === 'job2') {
-        modalCompany.textContent = 'Company Name 2';
-        modalTitle.textContent = 'Position Title 2';
-        modalDuration.textContent = 'Duration: Month Year - Month Year';
-        modalResponsibilities.textContent = 'Responsibilities: Briefly explain your role, key responsibilities, and achievements.';
-    } else if (job === 'edu1') {
-        modalCompany.textContent = 'Degree Name 1';
-        modalTitle.textContent = 'Institution Name 1';
-        modalDuration.textContent = 'Duration: Month Year - Month Year';
-        modalResponsibilities.textContent = 'Details: Briefly explain your degree, key courses, and achievements.';
-    } else if (job === 'edu2') {
-        modalCompany.textContent = 'Degree Name 2';
-        modalTitle.textContent = 'Institution Name 2';
-        modalDuration.textContent = 'Duration: Month Year - Month Year';
-        modalResponsibilities.textContent = 'Details: Briefly explain your degree, key courses, and achievements.';
+    // Set modal content based on the section clicked
+    if (content.type === 'work') {
+        modalCompany.textContent = content.company;
+        modalTitle.textContent = content.title;
+        modalDuration.textContent = content.duration;
+        modalResponsibilities.textContent = content.responsibilities;
+    } else if (content.type === 'education') {
+        modalCompany.textContent = content.institution;
+        modalTitle.textContent = content.degree;
+        modalDuration.textContent = content.duration;
+        modalResponsibilities.textContent = content.details;
+    } else if (content.type === 'project') {
+        modalCompany.textContent = content.title;
+        modalTitle.textContent = 'Project Details';
+        modalDuration.textContent = ''; // Optional: You can add duration or other details if needed
+        modalResponsibilities.textContent = content.details;
     }
 
-    // Check the current theme and adjust modal styles
-    const body = document.body;
-    if (body.classList.contains('dark-mode') || !body.classList.contains('light-mode')) {
-        modalContent.style.backgroundColor = '#1e1e1e'; // Dark background
-        modalContent.style.color = 'white'; // Light text
-    } else {
-        modalContent.style.backgroundColor = 'white'; // Light background
-        modalContent.style.color = 'black'; // Dark text
-    }
-
-    modal.style.display = "block"; // Show the modal
+    modal.style.display = "block";
 }
 
-// Function to close the modal
 function closeModal() {
-    document.getElementById("myModal").style.display = "none"; // Hide the modal
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none";
 }
 
-// Function to toggle project details
-function toggleProjectDetails(event) {
-    const projectDetails = event.target.nextElementSibling; // Get the next sibling (details)
-    const isVisible = projectDetails.style.display === "block";
-    projectDetails.style.display = isVisible ? "none" : "block"; // Toggle display
+// Close modal when clicking outside of it
+window.onclick = function (event) {
+    const modal = document.getElementById("myModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
