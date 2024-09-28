@@ -119,11 +119,21 @@ section {
 }
 
 .modal-content {
-    background-color: #fefefe; /* White background */
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888; /* Border */
     width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Light Mode Modal Background */
+body.light-mode .modal-content {
+    background-color: #fefae0; /* Light background for modal */
+}
+
+/* Dark Mode Modal Background */
+body.dark-mode .modal-content {
+    background-color: #333; /* Grey background for modal in dark mode */
 }
 
 .close {
