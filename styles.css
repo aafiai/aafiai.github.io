@@ -1,29 +1,15 @@
+/* Default styles */
 body {
-    font-family: 'Roboto Slab', serif;
     margin: 0;
-    padding: 0;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
-.light-mode {
-    background-color: #fff;
-    color: #333;
+    font-family: 'Roboto Slab', serif;
+    background-color: #121212; /* Dark background */
+    color: white; /* Light text */
 }
 
 header {
-    background: #444;
-    color: white;
-    padding: 10px 20px;
+    background-color: #1e1e1e; /* Dark header */
+    padding: 20px;
     text-align: center;
-}
-
-header.light-mode {
-    background: #f0f0f0;
 }
 
 nav ul {
@@ -31,115 +17,144 @@ nav ul {
     padding: 0;
 }
 
-nav li {
+nav ul li {
     display: inline;
-    margin-right: 15px;
+    margin: 0 15px;
 }
 
-nav a {
+nav ul li a {
     color: white;
     text-decoration: none;
-}
-
-nav.light-mode a {
-    color: #333;
-}
-
-button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: white;
-}
-
-button.light-mode {
-    color: #333;
 }
 
 section {
     padding: 20px;
 }
 
-h2 {
-    border-bottom: 2px solid #444;
-    padding-bottom: 10px;
-}
-
-.work-experience-container, .education-container, .projects-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.work-card, .education-card, .project-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    padding: 15px;
-    margin: 10px 0;
-    transition: background 0.3s;
-}
-
-.light-mode .work-card, .light-mode .education-card, .light-mode .project-card {
-    background: white; /* White background in light mode */
-}
-
-.dropdown-arrow {
-    cursor: pointer; /* Pointer cursor for dropdown */
-    font-size: 0.8em; /* Smaller font for dropdown arrow */
-}
-
-.project-details {
+footer {
+    background-color: #1e1e1e; /* Dark footer */
+    text-align: center;
     padding: 10px;
-    background: rgba(255, 255, 255, 0.1); /* Light background for details */
-    border-radius: 5px; /* Rounded corners */
-    margin-top: 10px; /* Space above details */
 }
 
+/* Light Mode Styles */
+body.light-mode {
+    background-color: white; /* Light background */
+    color: black; /* Dark text */
+}
+
+body.light-mode header,
+body.light-mode footer {
+    background-color: #f1f1f1; /* Light header/footer */
+}
+
+body.light-mode nav ul li a {
+    color: black; /* Dark link color */
+}
+
+/* Section styling */
+section {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode section {
+    background-color: #121212; /* Dark section background */
+}
+
+.light-mode section {
+    background-color: #ffffff; /* Light section background */
+    color: black; /* Dark section text */
+}
+
+/* Work Experience Card Styles */
+.work-experience-container {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    gap: 20px; /* Space between cards */
+}
+
+.work-card {
+    background: rgba(255, 255, 255, 0.1); /* Off-white for light mode */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: transform 0.3s; /* Animation */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.dark-mode .work-card {
+    background: rgba(100, 100, 100, 0.9); /* Grey for dark mode */
+}
+
+.work-card:hover {
+    transform: scale(1.05); /* Scale on hover */
+}
+
+.work-card h3 {
+    margin: 0 0 10px; /* Space below the heading */
+}
+
+.work-card p {
+    margin: 5px 0; /* Space between paragraphs */
+}
+
+.date {
+    font-weight: bold; /* Emphasize date */
+    color: #555; /* Grey color for dates */
+}
+
+/* Projects Section */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: flex-start; /* Align to the left */
+    gap: 20px; /* Space between cards */
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: calc(50% - 10px); /* Two projects per row with gap */
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* Modal Styles */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1000; /* Ensure modal is on top */
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
+    margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    border: 1px solid #888; /* Border */
+    width: 80%; /* Could be more or less, depending on screen size */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for colors */
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    color: #aaa; /* Grey color for the close button */
+    float: right; /* Align to the right */
+    font-size: 28px; /* Larger size */
+    font-weight: bold; /* Bold */
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #444;
-    color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-footer.light-mode {
-    background: #f0f0f0;
-    color: #333;
+    color: black; /* Change color on hover */
+    text-decoration: none; /* No underline */
+    cursor: pointer; /* Pointer cursor */
 }
