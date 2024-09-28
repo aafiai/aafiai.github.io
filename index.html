@@ -31,12 +31,12 @@
     <section id="work-experience">
         <h2>Work Experience</h2>
         <div class="work-experience-container">
-            <div class="work-card" onclick="openModal('job1')">
+            <div class="work-card" data-color="rgba(255, 255, 255, 0.1)" onclick="openModal('job1', this)">
                 <h3>Company Name 1</h3>
                 <p>Position Title 1</p>
                 <p class="date">Month Year - Month Year</p>
             </div>
-            <div class="work-card" onclick="openModal('job2')">
+            <div class="work-card" data-color="rgba(100, 100, 100, 0.9)" onclick="openModal('job2', this)">
                 <h3>Company Name 2</h3>
                 <p>Position Title 2</p>
                 <p class="date">Month Year - Month Year</p>
@@ -109,7 +109,7 @@
         };
 
         // Function to open the modal
-        function openModal(job) {
+        function openModal(job, card) {
             const modal = document.getElementById("myModal");
             const modalCompany = document.getElementById("modal-company");
             const modalTitle = document.getElementById("modal-title");
@@ -129,6 +129,10 @@
                 modalResponsibilities.textContent = 'Responsibilities: Briefly explain your role, key responsibilities, and achievements.';
             }
 
+            // Get the card's background color
+            const cardColor = card.getAttribute("data-color");
+            modal.querySelector(".modal-content").style.backgroundColor = cardColor; // Set the modal background color
+
             modal.style.display = "block"; // Show the modal
         }
 
@@ -142,7 +146,7 @@
         window.onclick = function(event) {
             const modal = document.getElementById("myModal");
             if (event.target == modal) {
-                closeModal(); // Hide the modal
+                modal.style.display = "none"; // Hide the modal
             }
         }
     </script>
