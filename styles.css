@@ -33,107 +33,51 @@ section {
 
 footer {
     background-color: #1e1e1e; /* Dark footer */
-    text-align: center;
     padding: 10px;
+    text-align: center;
 }
 
-/* Light Mode Styles */
-body.light-mode {
-    background-color: white; /* Light background */
+/* Dark and Light Mode Styles */
+.dark-mode {
+    background-color: #121212; /* Dark background */
+    color: white; /* Light text */
+}
+
+.light-mode {
+    background-color: #ffffff; /* Light background */
     color: black; /* Dark text */
 }
 
-body.light-mode header,
-body.light-mode footer {
-    background-color: #f1f1f1; /* Light header/footer */
-}
-
-body.light-mode nav ul li a {
-    color: black; /* Dark link color */
-}
-
-/* Section styling */
-section {
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.dark-mode section {
-    background-color: #121212; /* Dark section background */
-}
-
-.light-mode section {
-    background-color: #ffffff; /* Light section background */
-    color: black; /* Dark section text */
-}
-
-/* Work Experience Card Styles */
-.work-experience-container {
-    display: flex;
-    flex-direction: column; /* Stack cards vertically */
-    gap: 20px; /* Space between cards */
-}
-
-.work-card {
-    background: rgba(255, 255, 255, 0.1); /* Off-white for light mode */
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    width: 300px; /* Fixed width for cards */
-    transition: transform 0.3s; /* Animation */
-    cursor: pointer; /* Pointer cursor on hover */
-    text-align: center; /* Center text */
-}
-
-.dark-mode .work-card {
-    background: rgba(100, 100, 100, 0.9); /* Grey for dark mode */
-}
-
-.work-card:hover {
-    transform: scale(1.05); /* Scale on hover */
-}
-
-.work-card h3 {
-    margin: 0 0 10px; /* Space below the heading */
-    font-size: 1.5em; /* Bigger font for company name */
-}
-
-.work-card p {
-    margin: 5px 0; /* Space between paragraphs */
-}
-
-.date {
-    font-weight: bold; /* Emphasize date */
-    color: #555; /* Grey color for dates */
-    font-size: 0.9em; /* Smaller font for duration */
-}
-
-/* Education Section Styles */
-.education-container {
+/* Projects Section Styles */
+.projects-container {
     display: flex;
     flex-direction: column; /* Stack cards vertically */
     align-items: center; /* Center cards */
     gap: 20px; /* Space between cards */
 }
 
-.education-card {
+.project-card {
     background: rgba(255, 255, 255, 0.1); /* Off-white for light mode */
     padding: 20px;
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     width: 300px; /* Fixed width for cards */
-    text-align: center; /* Center text */
+    text-align: left; /* Align text to the left */
 }
 
-.dark-mode .education-card {
+.dark-mode .project-card {
     background: rgba(100, 100, 100, 0.9); /* Grey for dark mode */
 }
 
-.education-card h3 {
+.project-card h3 {
     margin: 0 0 10px; /* Space below the heading */
+    display: flex;
+    justify-content: space-between; /* Space between title and button */
+    align-items: center; /* Center vertically */
 }
 
-.education-card p {
-    margin: 5px 0; /* Space between paragraphs */
+.project-details {
+    margin-top: 10px; /* Space above project details */
 }
 
 /* Modal Styles */
