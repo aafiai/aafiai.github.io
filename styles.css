@@ -127,7 +127,12 @@ section {
 }
 
 /* Project Details */
+.project {
+    margin: 10px 0; /* Space between projects */
+}
+
 .project-details {
     padding: 10px;
     border-top: 1px solid #ccc; /* Border for separation */
+    display: none; /* Hidden by default */
 }
