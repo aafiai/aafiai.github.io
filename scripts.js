@@ -1,58 +1,35 @@
-// Dynamic year
-document.getElementById('year').textContent = new Date().getFullYear();
+// Dark Mode and Light Mode Toggle
+const toggleButton = document.getElementById('toggle-button');
+const body = document.body;
 
-// Theme toggle functionality
-const themeToggle = document.getElementById('themeToggle');
-themeToggle.onclick = function () {
-    document.body.classList.toggle('dark-mode');
-    document.body.classList.toggle('light-mode');
-
-    // Update button icon based on the current mode
-    if (document.body.classList.contains('dark-mode')) {
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for dark mode
+toggleButton.addEventListener('click', () => {
+    body.classList.toggle('light-mode');
+    body.classList.toggle('dark-mode');
+    const icon = toggleButton.querySelector('i');
+    if (body.classList.contains('light-mode')) {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
     } else {
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon for light mode
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
     }
-};
+});
 
-// Modal functionality for Work Experience, Education, and Projects
-function openModal(content) {
-    const modal = document.getElementById("myModal");
-    const modalCompany = document.getElementById("modal-company");
-    const modalTitle = document.getElementById("modal-title");
-    const modalDuration = document.getElementById("modal-duration");
-    const modalResponsibilities = document.getElementById("modal-responsibilities");
-
-    // Set modal content based on the section clicked
-    if (content.type === 'work') {
-        modalCompany.textContent = content.company;
-        modalTitle.textContent = content.title;
-        modalDuration.textContent = content.duration;
-        modalResponsibilities.textContent = content.responsibilities;
-    } else if (content.type === 'education') {
-        modalCompany.textContent = content.institution;
-        modalTitle.textContent = content.degree;
-        modalDuration.textContent = content.duration;
-        modalResponsibilities.textContent = content.details;
-    } else if (content.type === 'project') {
-        modalCompany.textContent = content.title;
-        modalTitle.textContent = 'Project Details';
-        modalDuration.textContent = ''; // Optional: You can add duration or other details if needed
-        modalResponsibilities.textContent = content.details;
-    }
-
-    modal.style.display = "block";
+// Show and Hide Popups
+function showPopup(id) {
+    document.getElementById(id).style.display = 'block';
 }
 
-function closeModal() {
-    const modal = document.getElementById("myModal");
-    modal.style.display = "none";
+function closePopup(id) {
+    document.getElementById(id).style.display = 'none';
 }
 
-// Close modal when clicking outside of it
-window.onclick = function (event) {
-    const modal = document.getElementById("myModal");
-    if (event.target == modal) {
-        modal.style.display = "none";
+// Toggle Project Details
+function toggleProjectDetails(id) {
+    const details = document.getElementById(id);
+    if (details.style.display === 'none' || details.style.display === '') {
+        details.style.display = 'block';
+    } else {
+        details.style.display = 'none';
     }
 }
