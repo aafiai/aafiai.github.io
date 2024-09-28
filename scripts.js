@@ -1,43 +1,62 @@
-// Theme toggle functionality
-const themeToggle = document.getElementById('themeToggle');
-themeToggle.onclick = function() {
-    const body = document.body;
-    const header = document.querySelector('header');
-    const footer = document.querySelector('footer');
-    const sections = document.querySelectorAll('section');
-    const modals = document.querySelectorAll('.modal-content');
+// Theme toggle function
+const toggleButton = document.getElementById('themeToggle');
+const body = document.body;
 
-    // Toggle classes for body, header, footer, and sections
-    body.classList.toggle('dark-mode');
+toggleButton.addEventListener('click', () => {
     body.classList.toggle('light-mode');
-    header.classList.toggle('dark-mode');
-    footer.classList.toggle('dark-mode');
-    sections.forEach(section => {
-        section.classList.toggle('dark-mode');
-    });
-    modals.forEach(modal => {
-        modal.classList.toggle('dark-mode');
-    });
+    body.classList.toggle('dark-mode');
+    
+    const isLightMode = body.classList.contains('light-mode');
+    
+    // Update the modal to reflect the current theme
+    const modalContent = document.querySelector('.modal-content');
+    modalContent.classList.toggle('light-mode', isLightMode);
+    modalContent.classList.toggle('dark-mode', !isLightMode);
+});
 
-    // Update button icon based on the current mode
-    if (body.classList.contains('dark-mode')) {
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for light mode
-    } else {
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon for dark mode
+// Show modal function
+function showModal(degree) {
+    const modal = document.getElementById('modal');
+    const modalCompany = document.getElementById('modalCompany');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDuration = document.getElementById('modalDuration');
+    const modalResponsibilities = document.getElementById('modalResponsibilities');
+
+    // Fill modal with work experience or education details
+    if (degree === 'degree1') {
+        modalCompany.textContent = 'Company Name 1 or Degree Name 1';
+        modalTitle.textContent = 'Position Title 1 or Institution Name 1';
+        modalDuration.textContent = 'Duration: Duration 1';
+        modalResponsibilities.textContent = 'Details about Work Experience or Degree 1.';
+    } else if (degree === 'degree2') {
+        modalCompany.textContent = 'Company Name 2 or Degree Name 2';
+        modalTitle.textContent = 'Position Title 2 or Institution Name 2';
+        modalDuration.textContent = 'Duration: Duration 2';
+        modalResponsibilities.textContent = 'Details about Work Experience or Degree 2.';
     }
-};
 
-// Modal functionality
-function showModal(modalId) {
-    document.getElementById(modalId).style.display = "block";
+    modal.style.display = "block"; // Show the modal
 }
 
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = "none";
+// Close modal
+document.querySelector('.close').onclick = function() {
+    document.getElementById('modal').style.display = "none";
 }
 
-// Dropdown functionality for projects
-function toggleDropdown(dropdownId) {
-    const dropdown = document.getElementById(dropdownId);
-    dropdown.classList.toggle('show'); // Toggle display
+// Function to toggle project details
+function toggleProjectDetails(project) {
+    const projectDetails = document.getElementById(project);
+    if (projectDetails.style.display === "none") {
+        projectDetails.style.display = "block";
+    } else {
+        projectDetails.style.display = "none";
+    }
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
 }
