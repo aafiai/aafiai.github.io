@@ -3,92 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aafia Iqbal's Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Aafia Iqbal's Portfolio">
+    <meta name="author" content="Aafia Iqbal">
+    <title>Aafia Iqbal | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="dark-mode"> <!-- Default to dark mode -->
-    <!-- Header Section -->
-    <header class="header">
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#work-experience">Work Experience</a></li>
+<body class="dark-mode">
+    <header>
+        <nav class="navbar">
+            <div class="logo">Aafia Iqbal</div>
+            <ul class="nav-links">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><button id="toggle-button" class="toggle-button"><i class="fas fa-sun"></i></button></li>
             </ul>
         </nav>
-        <h1>Welcome to My Portfolio</h1>
-        <button id="themeToggle"><i class="fas fa-sun"></i></button> <!-- Sun icon for theme toggle -->
     </header>
 
-    <!-- About Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Aafia Iqbal</h1>
+            <p>Web Developer | Data Science Enthusiast | Designer</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
     <section id="about">
         <h2>About Me</h2>
-        <p>Hi, I am Aafia Iqbal, a passionate web developer and designer. I enjoy creating responsive and interactive websites, and I am always eager to learn new technologies!</p>
+        <p>I'm a passionate web developer and designer with experience in building interactive and dynamic web applications. I enjoy learning new technologies and applying them to create innovative solutions.</p>
     </section>
 
-    <!-- Work Experience Section -->
-    <section id="work-experience">
-        <h2>Work Experience</h2>
-        <div class="work-experience-container">
-            <div class="work-card" onclick="openModal('job1')">
-                <h3>Company Name 1 | Position Title 1 | Duration 1</h3>
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <h3>HTML</h3>
+                <div class="progress-bar"><span class="html"></span></div>
             </div>
-            <div class="work-card" onclick="openModal('job2')">
-                <h3>Company Name 2 | Position Title 2 | Duration 2</h3>
+            <div class="skill">
+                <h3>CSS</h3>
+                <div class="progress-bar"><span class="css"></span></div>
+            </div>
+            <div class="skill">
+                <h3>JavaScript</h3>
+                <div class="progress-bar"><span class="js"></span></div>
+            </div>
+            <div class="skill">
+                <h3>React</h3>
+                <div class="progress-bar"><span class="react"></span></div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="card" onclick="showPopup('exp1')">
+            <h3>Company Name 1</h3>
+            <p>Frontend Developer | Jan 2020 - Dec 2021</p>
+        </div>
+        <div class="card" onclick="showPopup('exp2')">
+            <h3>Company Name 2</h3>
+            <p>Backend Developer | Feb 2019 - Dec 2019</p>
+        </div>
+    </section>
+
     <section id="education">
         <h2>Education</h2>
-        <div class="education-container">
-            <div class="education-card" onclick="openModal('degree1')">
-                <h3>University 1 | Degree Title 1 | Duration 1</h3>
-            </div>
-            <div class="education-card" onclick="openModal('degree2')">
-                <h3>University 2 | Degree Title 2 | Duration 2</h3>
-            </div>
+        <div class="card" onclick="showPopup('edu1')">
+            <h3>University Name</h3>
+            <p>Bachelor's Degree | 2016 - 2020</p>
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
-        <div class="project-container">
-            <div class="project-card">
+        <div class="container">
+            <div class="project">
                 <h3>Project Title 1</h3>
+                <p onclick="toggleProjectDetails('project1')">Click to see details</p>
+                <div class="project-details" id="project1">
+                    <p>Project description and technology used...</p>
+                </div>
             </div>
-            <div class="project-card">
+            <div class="project">
                 <h3>Project Title 2</h3>
+                <p onclick="toggleProjectDetails('project2')">Click to see details</p>
+                <div class="project-details" id="project2">
+                    <p>Project description and technology used...</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Me</h2>
-        <p>Email: youremail@example.com</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/aafiaiqbal/" target="_blank">Aafia Iqbal</a></p>
+        <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+        <p>LinkedIn: <a href="#">Aafia Iqbal</a></p>
     </section>
 
-    <!-- Footer Section -->
     <footer>
-        <p>&copy; <span id="year"></span> Aafia Iqbal</p>
+        <p>&copy; 2024 Aafia Iqbal</p>
     </footer>
 
-    <!-- Modal Structure -->
-    <div id="myModal" class="modal">
+    <!-- Pop-up Modals for Experience and Education -->
+    <div class="modal" id="exp1">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h3 id="modal-company"></h3>
-            <p id="modal-title"></p>
-            <p id="modal-duration"></p>
-            <p id="modal-responsibilities"></p>
+            <span class="close" onclick="closePopup('exp1')">&times;</span>
+            <h2>Company Name 1</h2>
+            <p>Detailed work experience including responsibilities and achievements...</p>
+        </div>
+    </div>
+    <div class="modal" id="exp2">
+        <div class="modal-content">
+            <span class="close" onclick="closePopup('exp2')">&times;</span>
+            <h2>Company Name 2</h2>
+            <p>Detailed work experience including responsibilities and achievements...</p>
+        </div>
+    </div>
+    <div class="modal" id="edu1">
+        <div class="modal-content">
+            <span class="close" onclick="closePopup('edu1')">&times;</span>
+            <h2>University Name</h2>
+            <p>Detailed education information like courses and achievements...</p>
         </div>
     </div>
 
