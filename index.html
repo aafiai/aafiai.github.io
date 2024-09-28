@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
 </head>
-<body class="dark-mode"> <!-- Set default mode to dark -->
-    <!-- Header Section -->
+<body class="dark-mode">
     <header>
         <nav>
             <ul>
@@ -18,16 +17,14 @@
             </ul>
         </nav>
         <h1>Welcome to My Portfolio</h1>
-        <button id="themeToggle"><i class="fas fa-sun"></i></button> <!-- Sun icon -->
+        <button id="themeToggle"><i class="fas fa-sun"></i></button>
     </header>
 
-    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>Hi, I am Aafia Iqbal, a web developer and designer. I enjoy creating responsive and interactive websites, and I am always eager to learn new technologies!</p>
+        <p>Hi, I am Aafia Iqbal, a passionate web developer and designer.</p>
     </section>
 
-    <!-- Work Experience Section -->
     <section id="work-experience">
         <h2>Work Experience</h2>
         <div class="work-experience-container">
@@ -41,18 +38,15 @@
                 <p>Position Title 2</p>
                 <p class="date">Month Year - Month Year</p>
             </div>
-            <!-- Add more work cards as needed -->
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Me</h2>
         <p>Email: youremail@example.com</p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/aafiaiqbal/" target="_blank">Aafia Iqbal</a></p>
     </section>
 
-    <!-- Footer Section -->
     <footer>
         <p>&copy; <span id="year"></span> Aafia Iqbal</p>
     </footer>
@@ -71,42 +65,6 @@
     <script>
         // Dynamic year
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Smooth scrolling
-        const links = document.querySelectorAll('nav a');
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        themeToggle.onclick = function() {
-            const body = document.body;
-            const header = document.querySelector('header');
-            const footer = document.querySelector('footer');
-            const sections = document.querySelectorAll('section');
-
-            // Toggle classes for body, header, footer, and sections
-            body.classList.toggle('dark-mode');
-            body.classList.toggle('light-mode');
-            header.classList.toggle('dark-mode');
-            footer.classList.toggle('dark-mode');
-            sections.forEach(section => {
-                section.classList.toggle('dark-mode');
-            });
-
-            // Update button icon based on the current mode
-            if (body.classList.contains('dark-mode')) {
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon
-            } else {
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon
-            }
-        };
 
         // Function to open the modal
         function openModal(job) {
@@ -145,6 +103,19 @@
                 modal.style.display = "none"; // Hide the modal
             }
         }
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.onclick = function() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+
+            // Update button icon based on the current mode
+            themeToggle.innerHTML = body.classList.contains('dark-mode') 
+                ? '<i class="fas fa-sun"></i>' // Sun icon
+                : '<i class="fas fa-moon"></i>'; // Moon icon
+        };
     </script>
 </body>
 </html>
