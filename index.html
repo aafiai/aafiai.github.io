@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aafia Iqbal's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <!-- Roboto Slab Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="dark-mode"> <!-- Default mode to dark -->
+<body class="dark-mode"> <!-- Default to dark mode -->
     <!-- Header Section -->
     <header>
         <nav>
@@ -35,15 +37,16 @@
         <h2>Work Experience</h2>
         <div class="work-experience-container">
             <div class="work-card" onclick="openModal('job1')">
-                <h3>Company Name 1</h3>
-                <p>Position Title 1</p>
-                <p class="date">Month Year - Month Year</p>
+                <span class="company-name">Company Name 1</span>
+                <span class="position-title">Position Title 1</span>
+                <span class="duration">Month Year - Month Year</span>
             </div>
             <div class="work-card" onclick="openModal('job2')">
-                <h3>Company Name 2</h3>
-                <p>Position Title 2</p>
-                <p class="date">Month Year - Month Year</p>
+                <span class="company-name">Company Name 2</span>
+                <span class="position-title">Position Title 2</span>
+                <span class="duration">Month Year - Month Year</span>
             </div>
+            <!-- Add more work cards as needed -->
         </div>
     </section>
 
@@ -51,28 +54,65 @@
     <section id="education">
         <h2>Education</h2>
         <div class="education-container">
-            <div class="edu-card" onclick="openModal('edu1')">
-                <h3>Degree 1</h3>
-                <p>Institution 1</p>
-                <p class="date">Year - Year</p>
+            <div class="education-card" onclick="openModal('degree1')">
+                <span class="degree-name">Bachelor of Science in Computer Science</span>
+                <span class="institution-name">University Name 1</span>
+                <span class="duration">Year - Year</span>
             </div>
+            <div class="education-card" onclick="openModal('degree2')">
+                <span class="degree-name">Master of Science in Software Engineering</span>
+                <span class="institution-name">University Name 2</span>
+                <span class="duration">Year - Year</span>
+            </div>
+            <!-- Add more education cards as needed -->
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
-        <div class="project-container">
+        <div class="projects-container">
             <div class="project-card">
-                <h3>Project 1</h3>
-                <button class="dropdown-btn" onclick="toggleDetails('proj1')">Details</button>
-                <div class="project-details" id="proj1">Detailed information about project 1...</div>
+                <div class="project-header">
+                    <span class="project-title">Project Title 1</span>
+                    <button class="dropdown-btn" onclick="toggleDetails('project1-details')"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div id="project1-details" class="project-details" style="display: none;">
+                    <p>Description of Project 1. Technologies used: HTML, CSS, JavaScript.</p>
+                    <p><a href="#" target="_blank">View Project</a></p>
+                </div>
             </div>
             <div class="project-card">
-                <h3>Project 2</h3>
-                <button class="dropdown-btn" onclick="toggleDetails('proj2')">Details</button>
-                <div class="project-details" id="proj2">Detailed information about project 2...</div>
+                <div class="project-header">
+                    <span class="project-title">Project Title 2</span>
+                    <button class="dropdown-btn" onclick="toggleDetails('project2-details')"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div id="project2-details" class="project-details" style="display: none;">
+                    <p>Description of Project 2. Technologies used: React, Node.js.</p>
+                    <p><a href="#" target="_blank">View Project</a></p>
+                </div>
             </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-title">Project Title 3</span>
+                    <button class="dropdown-btn" onclick="toggleDetails('project3-details')"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div id="project3-details" class="project-details" style="display: none;">
+                    <p>Description of Project 3. Technologies used: Python, Django.</p>
+                    <p><a href="#" target="_blank">View Project</a></p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-title">Project Title 4</span>
+                    <button class="dropdown-btn" onclick="toggleDetails('project4-details')"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div id="project4-details" class="project-details" style="display: none;">
+                    <p>Description of Project 4. Technologies used: Java, Spring Boot.</p>
+                    <p><a href="#" target="_blank">View Project</a></p>
+                </div>
+            </div>
+            <!-- Add more project cards as needed -->
         </div>
     </section>
 
@@ -92,10 +132,8 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h3 id="modal-company"></h3>
-            <p id="modal-title"></p>
-            <p id="modal-duration"></p>
-            <p id="modal-responsibilities"></p>
+            <h3 id="modal-title"></h3>
+            <p id="modal-details"></p>
         </div>
     </div>
 
