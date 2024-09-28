@@ -15,7 +15,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#work-experience">Work Experience</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li> <!-- Added Projects link -->
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -34,16 +34,15 @@
         <h2>Work Experience</h2>
         <div class="work-experience-container">
             <div class="work-card" onclick="openModal('job1')">
-                <h3>Company Name 1</h3>
-                <p>Position Title 1</p>
-                <p class="date">Month Year - Month Year</p>
+                <h3 class="company-name">Company Name 1</h3>
+                <p class="position-title">Position Title 1</p>
+                <p class="duration">Month Year - Month Year</p>
             </div>
             <div class="work-card" onclick="openModal('job2')">
-                <h3>Company Name 2</h3>
-                <p>Position Title 2</p>
-                <p class="date">Month Year - Month Year</p>
+                <h3 class="company-name">Company Name 2</h3>
+                <p class="position-title">Position Title 2</p>
+                <p class="duration">Month Year - Month Year</p>
             </div>
-            <!-- Add more work cards as needed -->
         </div>
     </section>
 
@@ -51,17 +50,16 @@
     <section id="education">
         <h2>Education</h2>
         <div class="education-container">
-            <div class="education-card">
-                <h3>Degree Title 1</h3>
-                <p>Institution Name 1</p>
-                <p class="date">Month Year - Month Year</p>
+            <div class="education-card" onclick="openModal('degree1')">
+                <h3 class="degree-name">Degree Name 1</h3>
+                <p class="institute-name">Institute Name 1</p>
+                <p class="duration">Year - Year</p>
             </div>
-            <div class="education-card">
-                <h3>Degree Title 2</h3>
-                <p>Institution Name 2</p>
-                <p class="date">Month Year - Month Year</p>
+            <div class="education-card" onclick="openModal('degree2')">
+                <h3 class="degree-name">Degree Name 2</h3>
+                <p class="institute-name">Institute Name 2</p>
+                <p class="duration">Year - Year</p>
             </div>
-            <!-- Add more education cards as needed -->
         </div>
     </section>
 
@@ -69,21 +67,34 @@
     <section id="projects">
         <h2>Projects</h2>
         <div class="projects-container">
-            <div class="project-card">
-                <h3>Project Title 1 <button class="dropdown-btn" onclick="toggleDetails(event)">▼</button></h3>
-                <div class="project-details" style="display:none;">
-                    <p>Description of project 1 goes here. Briefly explain the purpose, technologies used, and outcomes.</p>
-                    <p><a href="#" target="_blank">View Project</a></p>
+            <div class="project">
+                <h3 class="project-title">Project Title 1</h3>
+                <button class="dropdown-button" onclick="toggleProjectDetails('project1')">▼</button>
+                <div id="project1" class="project-details" style="display: none;">
+                    <p>Details about Project 1...</p>
                 </div>
             </div>
-            <div class="project-card">
-                <h3>Project Title 2 <button class="dropdown-btn" onclick="toggleDetails(event)">▼</button></h3>
-                <div class="project-details" style="display:none;">
-                    <p>Description of project 2 goes here. Briefly explain the purpose, technologies used, and outcomes.</p>
-                    <p><a href="#" target="_blank">View Project</a></p>
+            <div class="project">
+                <h3 class="project-title">Project Title 2</h3>
+                <button class="dropdown-button" onclick="toggleProjectDetails('project2')">▼</button>
+                <div id="project2" class="project-details" style="display: none;">
+                    <p>Details about Project 2...</p>
                 </div>
             </div>
-            <!-- Add more project cards as needed -->
+            <div class="project">
+                <h3 class="project-title">Project Title 3</h3>
+                <button class="dropdown-button" onclick="toggleProjectDetails('project3')">▼</button>
+                <div id="project3" class="project-details" style="display: none;">
+                    <p>Details about Project 3...</p>
+                </div>
+            </div>
+            <div class="project">
+                <h3 class="project-title">Project Title 4</h3>
+                <button class="dropdown-button" onclick="toggleProjectDetails('project4')">▼</button>
+                <div id="project4" class="project-details" style="display: none;">
+                    <p>Details about Project 4...</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -103,10 +114,8 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h3 id="modal-company"></h3>
-            <p id="modal-title"></p>
-            <p id="modal-duration"></p>
-            <p id="modal-responsibilities"></p>
+            <h3 id="modal-title"></h3>
+            <p id="modal-details"></p>
         </div>
     </div>
 
@@ -153,22 +162,22 @@
         // Function to open the modal
         function openModal(job) {
             const modal = document.getElementById("myModal");
-            const modalCompany = document.getElementById("modal-company");
             const modalTitle = document.getElementById("modal-title");
-            const modalDuration = document.getElementById("modal-duration");
-            const modalResponsibilities = document.getElementById("modal-responsibilities");
+            const modalDetails = document.getElementById("modal-details");
 
             // Fill modal with job details
             if (job === 'job1') {
-                modalCompany.textContent = 'Company Name 1';
-                modalTitle.textContent = 'Position Title 1';
-                modalDuration.textContent = 'Duration: Month Year - Month Year';
-                modalResponsibilities.textContent = 'Responsibilities: Briefly explain your role, key responsibilities, and achievements.';
+                modalTitle.textContent = 'Company Name 1';
+                modalDetails.textContent = 'Details about your experience at Company Name 1...';
             } else if (job === 'job2') {
-                modalCompany.textContent = 'Company Name 2';
-                modalTitle.textContent = 'Position Title 2';
-                modalDuration.textContent = 'Duration: Month Year - Month Year';
-                modalResponsibilities.textContent = 'Responsibilities: Briefly explain your role, key responsibilities, and achievements.';
+                modalTitle.textContent = 'Company Name 2';
+                modalDetails.textContent = 'Details about your experience at Company Name 2...';
+            } else if (job === 'degree1') {
+                modalTitle.textContent = 'Degree Name 1';
+                modalDetails.textContent = 'Details about Degree Name 1...';
+            } else if (job === 'degree2') {
+                modalTitle.textContent = 'Degree Name 2';
+                modalDetails.textContent = 'Details about Degree Name 2...';
             }
 
             modal.style.display = "block"; // Show the modal
@@ -189,9 +198,9 @@
         }
 
         // Function to toggle project details
-        function toggleDetails(event) {
-            const details = event.target.closest('.project-card').querySelector('.project-details');
-            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+        function toggleProjectDetails(project) {
+            const projectDetails = document.getElementById(project);
+            projectDetails.style.display = projectDetails.style.display === "none" ? "block" : "none";
         }
     </script>
 </body>
