@@ -1,54 +1,19 @@
-/* Global Styles */
+/* Default font */
 body {
     margin: 0;
-    font-family: 'Roboto Slab', serif; /* Roboto Slab Font */
-    transition: background-color 0.3s, color 0.3s;
-}
-
-/* Dark Mode */
-body.dark-mode {
+    font-family: 'Roboto Slab', serif; /* Use Roboto Slab */
     background-color: #121212;
     color: white;
 }
 
-body.dark-mode header,
-body.dark-mode footer {
-    background-color: #1e1e1e;
-}
-
-body.dark-mode nav ul li a {
-    color: white;
-}
-
-/* Light Mode */
-body.light-mode {
-    background-color: white;
-    color: black;
-}
-
-body.light-mode header,
-body.light-mode footer {
-    background-color: #f1f1f1;
-}
-
-body.light-mode nav ul li a {
-    color: black;
-}
-
-/* Header Styles */
 header {
+    background-color: #1e1e1e;
     padding: 20px;
     text-align: center;
 }
 
-header h1 {
-    margin: 10px 0;
-    font-size: 2.5em;
-}
-
-/* Navigation Styles */
 nav ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
@@ -58,212 +23,111 @@ nav ul li {
 }
 
 nav ul li a {
-    text-decoration: none;
-    font-size: 1.1em;
-}
-
-/* Theme Toggle Button */
-#themeToggle {
-    background: none;
-    border: none;
     color: white;
-    font-size: 1.5em;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    text-decoration: none;
 }
 
-body.light-mode #themeToggle {
-    color: black;
-}
-
-/* Section Styles */
 section {
-    padding: 40px 20px;
+    padding: 20px;
 }
 
-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2em;
-}
-
-/* Work Experience & Education Containers */
-.work-experience-container, .education-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-}
-
-/* Work Experience & Education Cards */
-.work-card, .education-card {
-    background-color: rgba(255, 255, 255, 0.1); /* Default for dark mode */
-    color: inherit;
-    padding: 15px 20px;
-    border-radius: 8px;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.work-card:hover, .education-card:hover {
-    transform: scale(1.02);
-}
-
-.light-mode .work-card, .light-mode .education-card {
-    background-color: white; /* White background for light mode */
-    color: black;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Text Styles within Cards */
-.company-name, .degree-name {
-    font-size: 1.3em;
-    font-weight: 700;
-}
-
-.position-title, .institution-name {
-    font-size: 1.1em;
-    font-weight: 500;
-}
-
-.duration {
-    font-size: 0.9em;
-    font-weight: 400;
-    color: #555;
-}
-
-/* Projects Section */
-.projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.project-card {
-    background-color: rgba(255, 255, 255, 0.1); /* Default for dark mode */
-    color: inherit;
-    padding: 15px 20px;
-    border-radius: 8px;
-    width: 45%; /* Two cards per row */
-    box-sizing: border-box;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.project-card:hover {
-    transform: scale(1.02);
-}
-
-.light-mode .project-card {
-    background-color: white; /* White background for light mode */
-    color: black;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.project-title {
-    font-size: 1.2em;
-    font-weight: 700;
-}
-
-.dropdown-btn {
-    background: none;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    font-size: 1em;
-}
-
-.dropdown-btn i {
-    transition: transform 0.3s;
-}
-
-.project-details {
-    margin-top: 10px;
-    font-size: 1em;
-}
-
-/* Contact Section */
-#contact p {
-    font-size: 1.1em;
-    text-align: center;
-}
-
-/* Footer Styles */
 footer {
     background-color: #1e1e1e;
-    color: white;
-    padding: 15px 20px;
     text-align: center;
-    position: relative;
+    padding: 10px;
 }
 
-body.light-mode footer {
-    background-color: #f1f1f1;
-    color: black;
-}
-
-/* Modal Styles */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000; /* On top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto; /* 10% from top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 60%; /* Could be more or less, depending on screen size */
-    border-radius: 8px;
-    position: relative;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.dark-mode .modal-content {
-    background-color: #1e1e1e;
-    color: white;
-}
-
-.light-mode .modal-content {
+.light-mode {
     background-color: white;
     color: black;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 15px;
+.light-mode header {
+    background-color: #f1f1f1;
+    color: black;
 }
 
-.close:hover,
-.close:focus {
+.light-mode .work-card, .light-mode .project-card, .light-mode .education-card {
+    background-color: white;
     color: black;
-    text-decoration: none;
+    border: 1px solid #ddd;
+}
+
+/* Work Experience Card Styles */
+.work-experience-container {
+    display: block;
+}
+
+.work-card {
+    background-color: #444;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.work-card h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+/* Education Card Styles */
+.education-card {
+    background-color: #444;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Project Card Styles */
+.project-container {
+    display: flex;
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #444;
+    padding: 20px;
+    width: 45%;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.dark-mode .modal-content {
+    background-color: #333;
+    color: white;
+}
+
+.close {
+    float: right;
+    font-size: 28px;
 }
