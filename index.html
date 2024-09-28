@@ -14,6 +14,7 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#work-experience">Work Experience</a></li>
+                <li><a href="#education">Education</a></li> <!-- Added Education link -->
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -32,16 +33,34 @@
         <h2>Work Experience</h2>
         <div class="work-experience-container">
             <div class="work-card" onclick="openModal('job1')">
-                <h3 class="company-name">Company Name 1</h3>
-                <p class="position-title">Position Title 1</p>
+                <h3>Company Name 1</h3>
+                <p>Position Title 1</p>
                 <p class="date">Month Year - Month Year</p>
             </div>
             <div class="work-card" onclick="openModal('job2')">
-                <h3 class="company-name">Company Name 2</h3>
-                <p class="position-title">Position Title 2</p>
+                <h3>Company Name 2</h3>
+                <p>Position Title 2</p>
                 <p class="date">Month Year - Month Year</p>
             </div>
             <!-- Add more work cards as needed -->
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-container">
+            <div class="education-card">
+                <h3>Degree Title 1</h3>
+                <p>Institution Name 1</p>
+                <p class="date">Month Year - Month Year</p>
+            </div>
+            <div class="education-card">
+                <h3>Degree Title 2</h3>
+                <p>Institution Name 2</p>
+                <p class="date">Month Year - Month Year</p>
+            </div>
+            <!-- Add more education cards as needed -->
         </div>
     </section>
 
@@ -111,18 +130,10 @@
         // Function to open the modal
         function openModal(job) {
             const modal = document.getElementById("myModal");
-            const modalContent = document.querySelector(".modal-content"); // Select modal content
             const modalCompany = document.getElementById("modal-company");
             const modalTitle = document.getElementById("modal-title");
             const modalDuration = document.getElementById("modal-duration");
             const modalResponsibilities = document.getElementById("modal-responsibilities");
-
-            // Set modal background color based on the current body class
-            if (document.body.classList.contains('dark-mode')) {
-                modalContent.style.backgroundColor = "#1e1e1e"; // Dark background for modal in dark mode
-            } else {
-                modalContent.style.backgroundColor = "#fefefe"; // White background for modal in light mode
-            }
 
             // Fill modal with job details
             if (job === 'job1') {
