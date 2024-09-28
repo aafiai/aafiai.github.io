@@ -107,6 +107,4 @@ section {
 
 /* Modal Styles */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; 
-    z-index: 1000; /* Ensure modal is on top
+    display
