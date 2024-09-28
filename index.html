@@ -3,41 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Your Portfolio</title>
 </head>
-<body class="light-mode"> <!-- Default to light mode -->
+<body class="dark-mode">
     <header>
+        <h1>Your Name</h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#work-experience">Work Experience</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">Contact Me</a></li>
             </ul>
+            <button id="themeToggle"><i class="fas fa-sun"></i></button>
         </nav>
-        <h1>Welcome to My Portfolio</h1>
-        <button id="themeToggle"><i class="fas fa-moon"></i></button> <!-- Initial icon -->
     </header>
-    
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Brief introduction about yourself, your background, and what you're passionate about.</p>
+    </section>
+
     <section id="work-experience">
         <h2>Work Experience</h2>
         <div class="work-experience-container">
-            <div class="work-card" onclick="showModal('workModal1')">
-                <h3>Company Name</h3>
-                <p class="position-title">Position Title</p>
-                <p class="date">Duration</p>
+            <div class="work-card" onclick="showModal('degree1')">
+                <h3>Company Name 1</h3>
+                <p>Position Title 1 | Duration 1</p>
             </div>
-            <!-- Add more cards as needed -->
-        </div>
-        <!-- Modal -->
-        <div id="workModal1" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('workModal1')">&times;</span>
-                <h3>Company Name</h3>
-                <p>Details about the work experience...</p>
+            <div class="work-card" onclick="showModal('degree2')">
+                <h3>Company Name 2</h3>
+                <p>Position Title 2 | Duration 2</p>
             </div>
         </div>
     </section>
@@ -45,19 +45,13 @@
     <section id="education">
         <h2>Education</h2>
         <div class="education-container">
-            <div class="education-card" onclick="showModal('eduModal1')">
-                <h3>Degree Name</h3>
-                <p class="degree-title">Institution Name</p>
-                <p class="date">Graduation Year</p>
+            <div class="education-card" onclick="showModal('degree1')">
+                <h3>Degree Name 1</h3>
+                <p>Institution Name 1 | Year</p>
             </div>
-            <!-- Add more cards as needed -->
-        </div>
-        <!-- Modal -->
-        <div id="eduModal1" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('eduModal1')">&times;</span>
-                <h3>Degree Name</h3>
-                <p>Details about the education...</p>
+            <div class="education-card" onclick="showModal('degree2')">
+                <h3>Degree Name 2</h3>
+                <p>Institution Name 2 | Year</p>
             </div>
         </div>
     </section>
@@ -66,26 +60,35 @@
         <h2>Projects</h2>
         <div class="projects-container">
             <div class="project-card">
-                <h3>Project Title 1</h3>
-                <button class="dropdown-btn" onclick="toggleDropdown('projectDetails1')">▼</button>
-                <div id="projectDetails1" class="dropdown-content">
-                    <p>Details about Project 1...</p>
+                <h3>Project Title 1 <button onclick="toggleProjectDetails('project1Details')">▼</button></h3>
+                <div id="project1Details" class="project-details" style="display: none;">
+                    <p>Details about Project 1.</p>
                 </div>
             </div>
             <div class="project-card">
-                <h3>Project Title 2</h3>
-                <button class="dropdown-btn" onclick="toggleDropdown('projectDetails2')">▼</button>
-                <div id="projectDetails2" class="dropdown-content">
-                    <p>Details about Project 2...</p>
+                <h3>Project Title 2 <button onclick="toggleProjectDetails('project2Details')">▼</button></h3>
+                <div id="project2Details" class="project-details" style="display: none;">
+                    <p>Details about Project 2.</p>
                 </div>
             </div>
-            <!-- Add more projects as needed -->
         </div>
     </section>
 
-    <footer>
-        <p>© 2024 Your Name. All rights reserved.</p>
-    </footer>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>If you'd like to get in touch, please reach out via email at: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    </section>
+
+    <!-- Modal for Work Experience and Education -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalCompany"></h3>
+            <h4 id="modalTitle"></h4>
+            <p id="modalDuration"></p>
+            <p id="modalResponsibilities"></p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
