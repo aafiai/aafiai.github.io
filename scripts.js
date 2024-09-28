@@ -2,7 +2,6 @@
 const toggleButton = document.getElementById("toggle-theme");
 toggleButton.addEventListener("click", function () {
     document.body.classList.toggle("light-mode");
-    document.body.classList.toggle("dark-mode");
 });
 
 // Function to open the modal
@@ -14,7 +13,7 @@ function openModal(job) {
     const modalDuration = document.getElementById("modal-duration");
     const modalResponsibilities = document.getElementById("modal-responsibilities");
 
-    // Fill modal with job details
+    // Fill modal content based on the job clicked
     if (job === 'job1') {
         modalCompany.textContent = 'Company Name 1';
         modalTitle.textContent = 'Position Title 1';
@@ -39,7 +38,7 @@ function openModal(job) {
 
     // Check the current theme and adjust modal styles
     const body = document.body;
-    if (body.classList.contains('dark-mode')) {
+    if (body.classList.contains('dark-mode') || !body.classList.contains('light-mode')) {
         modalContent.style.backgroundColor = '#1e1e1e'; // Dark background
         modalContent.style.color = 'white'; // Light text
     } else {
