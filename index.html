@@ -13,7 +13,7 @@
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#work-experience">Work Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -24,73 +24,19 @@
     <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p> Short Desciption about me .</p>
+        <p>Hi, I am Aafia Iqbal, a passionate web developer and designer. I enjoy creating responsive and interactive websites, and I am always eager to learn new technologies!</p>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="project">
-            <h3>Project 1</h3>
-            <p>Description of project 1. Briefly explain what you worked on, tools you used, etc.</p>
-        </div>
-        <div class="project">
-            <h3>Project 2</h3>
-            <p>Description of project 2. Briefly explain what you worked on, tools you used, etc.</p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: youremail@example.com</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/aafiaiqbal/" target="_blank">Aafia Iqbal</a></p>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; <span id="year"></span> Aafia Iqbal</p>
-    </footer>
-
-    <script>
-        // Dynamic year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Smooth scrolling
-        const links = document.querySelectorAll('nav a');
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        themeToggle.onclick = function() {
-            const body = document.body;
-            const header = document.querySelector('header');
-            const footer = document.querySelector('footer');
-            const sections = document.querySelectorAll('section');
-
-            // Toggle classes for body, header, footer, and sections
-            body.classList.toggle('dark-mode');
-            body.classList.toggle('light-mode');
-            header.classList.toggle('dark-mode');
-            footer.classList.toggle('dark-mode');
-            sections.forEach(section => {
-                section.classList.toggle('dark-mode');
-            });
-
-            // Update button icon based on the current mode
-            if (body.classList.contains('dark-mode')) {
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon
-            } else {
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon
-            }
-        };
-    </script>
-</body>
-</html>
+    <!-- Work Experience Section -->
+    <section id="work-experience">
+        <h2>Work Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Job Title at Company Name</h3>
+                    <p>Duration: Month Year - Month Year</p>
+                    <p>Responsibilities: Briefly explain your role, key responsibilities, and achievements.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+            
