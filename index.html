@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aafia Iqbal's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet"> <!-- Roboto Slab -->
 </head>
-<body class="dark-mode"> <!-- Set default mode to dark -->
+<body class="dark-mode"> <!-- Default to dark mode -->
     <!-- Header Section -->
-    <header>
+    <header class="header">
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -21,7 +21,7 @@
             </ul>
         </nav>
         <h1>Welcome to My Portfolio</h1>
-        <button id="themeToggle"><i class="fas fa-sun"></i></button> <!-- Sun icon -->
+        <button id="themeToggle"><i class="fas fa-sun"></i></button> <!-- Sun icon for theme toggle -->
     </header>
 
     <!-- About Section -->
@@ -35,14 +35,10 @@
         <h2>Work Experience</h2>
         <div class="work-experience-container">
             <div class="work-card" onclick="openModal('job1')">
-                <h3 class="company-name">Company Name 1</h3>
-                <p class="position-title">Position Title 1</p>
-                <p class="duration">Month Year - Month Year</p>
+                <h3>Company Name 1 | Position Title 1 | Duration 1</h3>
             </div>
             <div class="work-card" onclick="openModal('job2')">
-                <h3 class="company-name">Company Name 2</h3>
-                <p class="position-title">Position Title 2</p>
-                <p class="duration">Month Year - Month Year</p>
+                <h3>Company Name 2 | Position Title 2 | Duration 2</h3>
             </div>
         </div>
     </section>
@@ -51,15 +47,11 @@
     <section id="education">
         <h2>Education</h2>
         <div class="education-container">
-            <div class="education-card" onclick="openModal('edu1')">
-                <h3 class="degree-name">Degree Name 1</h3>
-                <p class="institution">Institution Name 1</p>
-                <p class="duration">Month Year - Month Year</p>
+            <div class="education-card" onclick="openModal('degree1')">
+                <h3>University 1 | Degree Title 1 | Duration 1</h3>
             </div>
-            <div class="education-card" onclick="openModal('edu2')">
-                <h3 class="degree-name">Degree Name 2</h3>
-                <p class="institution">Institution Name 2</p>
-                <p class="duration">Month Year - Month Year</p>
+            <div class="education-card" onclick="openModal('degree2')">
+                <h3>University 2 | Degree Title 2 | Duration 2</h3>
             </div>
         </div>
     </section>
@@ -67,18 +59,12 @@
     <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
-        <div class="projects-container">
+        <div class="project-container">
             <div class="project-card">
-                <h3>Project Title 1 <span class="dropdown-arrow" onclick="toggleDropdown('project1')">▼</span></h3>
-                <div id="project1" class="project-details" style="display: none;">
-                    <p>Details about Project 1. Describe the project, technologies used, and your role.</p>
-                </div>
+                <h3>Project Title 1</h3>
             </div>
             <div class="project-card">
-                <h3>Project Title 2 <span class="dropdown-arrow" onclick="toggleDropdown('project2')">▼</span></h3>
-                <div id="project2" class="project-details" style="display: none;">
-                    <p>Details about Project 2. Describe the project, technologies used, and your role.</p>
-                </div>
+                <h3>Project Title 2</h3>
             </div>
         </div>
     </section>
@@ -106,104 +92,6 @@
         </div>
     </div>
 
-    <script>
-        // Dynamic year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Smooth scrolling
-        const links = document.querySelectorAll('nav a');
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        themeToggle.onclick = function() {
-            const body = document.body;
-            const header = document.querySelector('header');
-            const footer = document.querySelector('footer');
-            const sections = document.querySelectorAll('section');
-
-            // Toggle classes for body, header, footer, and sections
-            body.classList.toggle('dark-mode');
-            body.classList.toggle('light-mode');
-            header.classList.toggle('dark-mode');
-            footer.classList.toggle('dark-mode');
-            sections.forEach(section => {
-                section.classList.toggle('dark-mode');
-                section.classList.toggle('light-mode');
-            });
-
-            // Update button icon based on the current mode
-            if (body.classList.contains('dark-mode')) {
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon
-            } else {
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon
-            }
-        };
-
-        // Function to open the modal
-        function openModal(job) {
-            const modal = document.getElementById("myModal");
-            const modalCompany = document.getElementById("modal-company");
-            const modalTitle = document.getElementById("modal-title");
-            const modalDuration = document.getElementById("modal-duration");
-            const modalResponsibilities = document.getElementById("modal-responsibilities");
-
-            // Fill modal with job details
-            if (job === 'job1') {
-                modalCompany.textContent = 'Company Name 1';
-                modalTitle.textContent = 'Position Title 1';
-                modalDuration.textContent = 'Duration: Month Year - Month Year';
-                modalResponsibilities.textContent = 'Responsibilities: Briefly explain your role, key responsibilities, and achievements.';
-            } else if (job === 'job2') {
-                modalCompany.textContent = 'Company Name 2';
-                modalTitle.textContent = 'Position Title 2';
-                modalDuration.textContent = 'Duration: Month Year - Month Year';
-                modalResponsibilities.textContent = 'Responsibilities: Briefly explain your role, key responsibilities, and achievements.';
-            } else if (job === 'edu1') {
-                modalCompany.textContent = 'Degree Name 1';
-                modalTitle.textContent = 'Institution Name 1';
-                modalDuration.textContent = 'Duration: Month Year - Month Year';
-                modalResponsibilities.textContent = 'Details: Briefly explain your degree, key courses, and achievements.';
-            } else if (job === 'edu2') {
-                modalCompany.textContent = 'Degree Name 2';
-                modalTitle.textContent = 'Institution Name 2';
-                modalDuration.textContent = 'Duration: Month Year - Month Year';
-                modalResponsibilities.textContent = 'Details: Briefly explain your degree, key courses, and achievements.';
-            }
-
-            modal.style.display = "block"; // Show the modal
-        }
-
-        // Function to close the modal
-        function closeModal() {
-            const modal = document.getElementById("myModal");
-            modal.style.display = "none"; // Hide the modal
-        }
-
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById("myModal");
-            if (event.target == modal) {
-                modal.style.display = "none"; // Hide the modal
-            }
-        }
-
-        // Function to toggle dropdown details
-        function toggleDropdown(projectId) {
-            const projectDetails = document.getElementById(projectId);
-            if (projectDetails.style.display === "none") {
-                projectDetails.style.display = "block"; // Show details
-            } else {
-                projectDetails.style.display = "none"; // Hide details
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
