@@ -1,46 +1,14 @@
-// Dynamic year
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// Smooth scrolling
-const links = document.querySelectorAll('nav a');
-links.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-    });
+// Toggle theme
+const toggleButton = document.getElementById("toggle-theme");
+toggleButton.addEventListener("click", function () {
+    document.body.classList.toggle("light-mode");
+    document.body.classList.toggle("dark-mode");
 });
-
-// Theme toggle functionality
-const themeToggle = document.getElementById('themeToggle');
-themeToggle.onclick = function() {
-    const body = document.body;
-    const header = document.querySelector('header');
-    const footer = document.querySelector('footer');
-    const sections = document.querySelectorAll('section');
-
-    // Toggle classes for body, header, footer, and sections
-    body.classList.toggle('dark-mode');
-    body.classList.toggle('light-mode');
-    header.classList.toggle('dark-mode');
-    footer.classList.toggle('dark-mode');
-    sections.forEach(section => {
-        section.classList.toggle('dark-mode');
-        section.classList.toggle('light-mode');
-    });
-
-    // Update button icon based on the current mode
-    if (body.classList.contains('dark-mode')) {
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon
-    } else {
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon
-    }
-};
 
 // Function to open the modal
 function openModal(job) {
     const modal = document.getElementById("myModal");
+    const modalContent = document.querySelector('.modal-content'); // Select modal content
     const modalCompany = document.getElementById("modal-company");
     const modalTitle = document.getElementById("modal-title");
     const modalDuration = document.getElementById("modal-duration");
@@ -69,29 +37,27 @@ function openModal(job) {
         modalResponsibilities.textContent = 'Details: Briefly explain your degree, key courses, and achievements.';
     }
 
+    // Check the current theme and adjust modal styles
+    const body = document.body;
+    if (body.classList.contains('dark-mode')) {
+        modalContent.style.backgroundColor = '#1e1e1e'; // Dark background
+        modalContent.style.color = 'white'; // Light text
+    } else {
+        modalContent.style.backgroundColor = 'white'; // Light background
+        modalContent.style.color = 'black'; // Dark text
+    }
+
     modal.style.display = "block"; // Show the modal
 }
 
 // Function to close the modal
 function closeModal() {
-    const modal = document.getElementById("myModal");
-    modal.style.display = "none"; // Hide the modal
+    document.getElementById("myModal").style.display = "none"; // Hide the modal
 }
 
-// Close modal when clicking outside of it
-window.onclick = function(event) {
-    const modal = document.getElementById("myModal");
-    if (event.target == modal) {
-        modal.style.display = "none"; // Hide the modal
-    }
-}
-
-// Function to toggle dropdown details
-function toggleDropdown(projectId) {
-    const projectDetails = document.getElementById(projectId);
-    if (projectDetails.style.display === "none") {
-        projectDetails.style.display = "block"; // Show details
-    } else {
-        projectDetails.style.display = "none"; // Hide details
-    }
+// Function to toggle project details
+function toggleProjectDetails(event) {
+    const projectDetails = event.target.nextElementSibling; // Get the next sibling (details)
+    const isVisible = projectDetails.style.display === "block";
+    projectDetails.style.display = isVisible ? "none" : "block"; // Toggle display
 }
