@@ -3,109 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aafia Iqbal's Portfolio</title>
+    <title>Your Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"> <!-- Roboto Slab -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="dark-mode"> <!-- Set default mode to dark -->
-    <!-- Header Section -->
+<body class="dark-mode">
     <header>
+        <h1>Your Name</h1>
         <nav>
             <ul>
-                <li><a href="#about">About</a></li>
                 <li><a href="#work-experience">Work Experience</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact Me</a></li>
             </ul>
         </nav>
-        <h1>Welcome to My Portfolio</h1>
-        <button id="themeToggle"><i class="fas fa-sun"></i></button> <!-- Sun icon -->
+        <button id="mode-toggle"><i class="fas fa-sun"></i></button>
     </header>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi, I am Aafia Iqbal, a passionate web developer and designer. I enjoy creating responsive and interactive websites, and I am always eager to learn new technologies!</p>
-    </section>
-
-    <!-- Work Experience Section -->
     <section id="work-experience">
         <h2>Work Experience</h2>
         <div class="work-experience-container">
-            <div class="work-card" onclick="openModal('job1')">
-                <h3>Company Name 1</h3>
-                <p>Position Title 1</p>
-                <p class="date">Month Year - Month Year</p>
+            <div class="work-card" data-modal="work1">
+                <h3>Company A</h3>
+                <p>Position: Developer</p>
+                <p class="date">Duration: Jan 2020 - Present</p>
             </div>
-            <div class="work-card" onclick="openModal('job2')">
-                <h3>Company Name 2</h3>
-                <p>Position Title 2</p>
-                <p class="date">Month Year - Month Year</p>
+            <div class="work-card" data-modal="work2">
+                <h3>Company B</h3>
+                <p>Position: Analyst</p>
+                <p class="date">Duration: Jan 2019 - Dec 2019</p>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
     <section id="education">
         <h2>Education</h2>
         <div class="education-container">
-            <div class="education-card" onclick="openModal('degree1')">
-                <h3>Degree Title 1</h3>
-                <p>Institution Name 1</p>
-                <p class="date">Year - Year</p>
+            <div class="education-card" data-modal="edu1">
+                <h3>University A</h3>
+                <p>Degree: Bachelor of Science</p>
+                <p class="date">Duration: 2015 - 2019</p>
             </div>
-            <div class="education-card" onclick="openModal('degree2')">
-                <h3>Degree Title 2</h3>
-                <p>Institution Name 2</p>
-                <p class="date">Year - Year</p>
+            <div class="education-card" data-modal="edu2">
+                <h3>University B</h3>
+                <p>Degree: Master of Science</p>
+                <p class="date">Duration: 2020 - 2022</p>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
-        <div class="projects-container">
+        <div class="project-container">
             <div class="project">
-                <h3>Project Title 1 <button class="dropdown" onclick="toggleDetails('project1')">▼</button></h3>
-                <div id="project1" class="project-details" style="display: none;">
+                <h3>Project 1 <button class="dropdown-toggle">▼</button></h3>
+                <div class="project-details">
                     <p>Details about Project 1.</p>
                 </div>
             </div>
             <div class="project">
-                <h3>Project Title 2 <button class="dropdown" onclick="toggleDetails('project2')">▼</button></h3>
-                <div id="project2" class="project-details" style="display: none;">
+                <h3>Project 2 <button class="dropdown-toggle">▼</button></h3>
+                <div class="project-details">
                     <p>Details about Project 2.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: youremail@example.com</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/aafiaiqbal/" target="_blank">Aafia Iqbal</a></p>
+    <section id="about">
+        <h2>About</h2>
+        <p>Your about section content goes here.</p>
     </section>
 
-    <!-- Footer Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Your contact information goes here.</p>
+    </section>
+
     <footer>
-        <p>&copy; <span id="year"></span> Aafia Iqbal</p>
+        <p>© 2024 Your Name. All Rights Reserved.</p>
     </footer>
 
-    <!-- Modal Structure -->
-    <div id="myModal" class="modal">
+    <div id="work1" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h3 id="modal-company"></h3>
-            <p id="modal-title"></p>
-            <p id="modal-duration"></p>
-            <p id="modal-responsibilities"></p>
+            <span class="close">&times;</span>
+            <h3>Company A</h3>
+            <p>Details about your role at Company A.</p>
         </div>
     </div>
 
-    <script src="script.js"></script> <!-- External JavaScript file -->
+    <div id="work2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Company B</h3>
+            <p>Details about your role at Company B.</p>
+        </div>
+    </div>
+
+    <div id="edu1" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>University A</h3>
+            <p>Details about your degree at University A.</p>
+        </div>
+    </div>
+
+    <div id="edu2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>University B</h3>
+            <p>Details about your degree at University B.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
