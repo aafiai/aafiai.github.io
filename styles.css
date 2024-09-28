@@ -11,8 +11,10 @@ body.dark-mode {
     color: white;
 }
 
-body.dark-mode .work-card, body.dark-mode .edu-card, body.dark-mode .project-card {
-    background-color: rgba(100, 100, 100, 0.9);
+body.dark-mode .work-card, 
+body.dark-mode .edu-card, 
+body.dark-mode .project-card {
+    background-color: rgba(100, 100, 100, 0.9); /* Darker background for dark mode */
     color: white;
 }
 
@@ -27,9 +29,12 @@ body.light-mode {
     color: black;
 }
 
-body.light-mode .work-card, body.light-mode .edu-card, body.light-mode .project-card {
-    background-color: white;
+body.light-mode .work-card, 
+body.light-mode .edu-card, 
+body.light-mode .project-card {
+    background-color: white; /* White background for light mode */
     color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
 }
 
 body.light-mode .modal-content {
@@ -57,15 +62,19 @@ body.light-mode #themeToggle {
     color: black;
 }
 
-/* Work Experience, Education and Project Card Styles */
-.work-experience-container, .education-container, .project-container {
+/* Work Experience, Education, and Project Card Styles */
+.work-experience-container, 
+.education-container, 
+.project-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
 }
 
-.work-card, .edu-card, .project-card {
+.work-card, 
+.edu-card, 
+.project-card {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 10px;
@@ -73,6 +82,7 @@ body.light-mode #themeToggle {
     width: 60%;
     cursor: pointer;
     text-align: left;
+    transition: background-color 0.3s, color 0.3s; /* Transition for smooth theme change */
 }
 
 .work-card h3, .edu-card h3, .project-card h3 {
