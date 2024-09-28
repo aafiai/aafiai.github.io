@@ -101,4 +101,11 @@ section {
 }
 
 .date {
-    font-weight: bold; /* Emphasize
+    font-weight: bold; /* Emphasize date */
+    color: #555; /* Grey color for dates */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
