@@ -1,32 +1,15 @@
+/* Default styles */
 body {
-    font-family: 'Roboto Slab', serif;
     margin: 0;
-    padding: 0;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.dark-mode {
-    background-color: #121212;
-    color: white;
-}
-
-.light-mode {
-    background-color: white;
-    color: black;
+    font-family: 'Roboto Slab', serif; /* Updated to Roboto Slab */
+    background-color: #121212; /* Dark background */
+    color: white; /* Light text */
 }
 
 header {
-    background-color: #1e1e1e;
+    background-color: #1e1e1e; /* Dark header */
     padding: 20px;
     text-align: center;
-}
-
-header h1 {
-    margin: 0;
-}
-
-nav {
-    margin-bottom: 20px;
 }
 
 nav ul {
@@ -36,101 +19,115 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
-nav a {
+nav ul li a {
     color: white;
     text-decoration: none;
-}
-
-#themeToggle {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 24px;
 }
 
 section {
     padding: 20px;
-    margin: 20px;
-    border-radius: 5px;
 }
 
-.work-experience-container,
-.education-container,
-.projects-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.work-card,
-.education-card,
-.project-card {
-    background-color: #1e1e1e;
-    padding: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.work-card:hover,
-.education-card:hover,
-.project-card:hover {
-    background-color: #333;
-}
-
-.project-details {
-    margin-top: 10px;
+footer {
+    background-color: #1e1e1e; /* Dark footer */
+    text-align: center;
     padding: 10px;
-    background-color: #1e1e1e;
-    color: white;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
+/* Light Mode Styles */
+body.light-mode {
+    background-color: white; /* Light background */
+    color: black; /* Dark text */
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    border-radius: 5px;
+body.light-mode header,
+body.light-mode footer {
+    background-color: #f1f1f1; /* Light header/footer */
+}
+
+body.light-mode nav ul li a {
+    color: black; /* Dark link color */
+}
+
+/* Section styling */
+section {
     transition: background-color 0.3s, color 0.3s;
 }
 
-.modal-content.dark-mode {
-    background-color: #121212; /* Dark modal background */
-    color: white; /* Light modal text */
+.dark-mode section {
+    background-color: #121212; /* Dark section background */
 }
 
-.modal-content.light-mode {
-    background-color: white; /* Light modal background */
-    color: black; /* Dark modal text */
+.light-mode section {
+    background-color: #ffffff; /* Light section background */
+    color: black; /* Dark section text */
+}
+
+/* Work Experience and Education Card Styles */
+.work-experience-container,
+.education-container {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center the cards */
+}
+
+.work-card, .education-card {
+    background: rgba(255, 255, 255, 0.1); /* Off-white for light mode */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    width: 250px; /* Adjusted width for alignment */
+    transition: transform 0.3s; /* Animation */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin: 10px 0; /* Space between cards */
+}
+
+.dark-mode .work-card, .dark-mode .education-card {
+    background: rgba(100, 100, 100, 0.9); /* Grey for dark mode */
+}
+
+.light-mode .work-card, .light-mode .education-card {
+    background: white; /* White for light mode */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1000; /* Ensure modal is on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+}
+
+.modal-content {
+    background-color: #fefefe; /* White background */
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888; /* Border */
+    width: 80%; /* Could be more or less, depending on screen size */
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    color: #aaa; /* Grey color for the close button */
+    float: right; /* Align to the right */
+    font-size: 28px; /* Larger size */
+    font-weight: bold; /* Bold */
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    color: black; /* Darker close button on hover */
+}
+
+/* Project Details */
+.project-details {
+    padding: 10px;
+    border-top: 1px solid #ccc; /* Border for separation */
 }
