@@ -92,6 +92,7 @@ section {
 
 .work-card h3 {
     margin: 0 0 10px; /* Space below the heading */
+    font-size: 1.5em; /* Larger font size for Company Name */
 }
 
 .work-card p {
