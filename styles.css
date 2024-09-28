@@ -81,6 +81,7 @@ section {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     width: 300px; /* Fixed width for cards */
     transition: transform 0.3s; /* Animation */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
 .work-card:hover {
@@ -99,3 +100,16 @@ section {
     font-weight: bold; /* Emphasize date */
     color: #555; /* Grey color for dates */
 }
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0
+
