@@ -69,43 +69,36 @@ section {
 /* Work Experience Card Styles */
 .work-experience-container {
     display: flex;
-    flex-direction: column; /* Stack cards one below the other */
+    flex-direction: column; /* Stack cards vertically */
     gap: 20px; /* Space between cards */
     align-items: center; /* Center the cards */
 }
 
 .work-card {
+    display: flex; /* Flex display for horizontal alignment */
+    justify-content: space-between; /* Space out items in card */
     background: rgba(255, 255, 255, 0.1); /* Off-white for light mode */
     padding: 20px;
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     width: 300px; /* Fixed width for cards */
-    transition: transform 0.3s; /* Animation */
     cursor: pointer; /* Pointer cursor on hover */
-    text-align: center; /* Center text */
 }
 
 .dark-mode .work-card {
     background: rgba(100, 100, 100, 0.9); /* Grey for dark mode */
 }
 
-.work-card:hover {
-    transform: scale(1.05); /* Scale on hover */
-}
-
-/* Font sizes for work card */
 .company-name {
-    font-size: 1.5em; /* Larger font size for Company Name */
-    font-weight: bold; /* Optional: make it bold */
+    font-size: 1.5em; /* Larger font size for company name */
 }
 
 .position-title {
-    font-size: 1.2em; /* Medium font size for Position Title */
+    font-size: 1.2em; /* Middle font size for position title */
 }
 
-.duration {
-    font-size: 0.9em; /* Smaller font size for Duration */
-    color: #888; /* Optional: lighter color for duration */
+.date {
+    font-size: 0.9em; /* Smaller font size for date */
 }
 
 /* Modal Styles */
@@ -122,11 +115,19 @@ section {
 }
 
 .modal-content {
-    background-color: #fefefe; /* White background */
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888; /* Border */
     width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Modal background color */
+.dark-mode .modal-content {
+    background-color: #1e1e1e; /* Dark background */
+}
+
+.light-mode .modal-content {
+    background-color: #fefefe; /* White background */
 }
 
 .close {
