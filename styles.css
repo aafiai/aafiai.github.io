@@ -1,15 +1,29 @@
-/* Default font */
 body {
+    font-family: 'Roboto Slab', serif;
     margin: 0;
-    font-family: 'Roboto Slab', serif; /* Use Roboto Slab */
-    background-color: #121212;
-    color: white;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.light-mode {
+    background-color: #fff;
+    color: #333;
 }
 
 header {
-    background-color: #1e1e1e;
-    padding: 20px;
+    background: #444;
+    color: white;
+    padding: 10px 20px;
     text-align: center;
+}
+
+header.light-mode {
+    background: #f0f0f0;
 }
 
 nav ul {
@@ -17,117 +31,115 @@ nav ul {
     padding: 0;
 }
 
-nav ul li {
+nav li {
     display: inline;
-    margin: 0 15px;
+    margin-right: 15px;
 }
 
-nav ul li a {
+nav a {
     color: white;
     text-decoration: none;
+}
+
+nav.light-mode a {
+    color: #333;
+}
+
+button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+button.light-mode {
+    color: #333;
 }
 
 section {
     padding: 20px;
 }
 
-footer {
-    background-color: #1e1e1e;
-    text-align: center;
+h2 {
+    border-bottom: 2px solid #444;
+    padding-bottom: 10px;
+}
+
+.work-experience-container, .education-container, .projects-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.work-card, .education-card, .project-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    transition: background 0.3s;
+}
+
+.light-mode .work-card, .light-mode .education-card, .light-mode .project-card {
+    background: white; /* White background in light mode */
+}
+
+.dropdown-arrow {
+    cursor: pointer; /* Pointer cursor for dropdown */
+    font-size: 0.8em; /* Smaller font for dropdown arrow */
+}
+
+.project-details {
     padding: 10px;
+    background: rgba(255, 255, 255, 0.1); /* Light background for details */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 10px; /* Space above details */
 }
 
-.light-mode {
-    background-color: white;
-    color: black;
-}
-
-.light-mode header {
-    background-color: #f1f1f1;
-    color: black;
-}
-
-.light-mode .work-card, .light-mode .project-card, .light-mode .education-card {
-    background-color: white;
-    color: black;
-    border: 1px solid #ddd;
-}
-
-/* Work Experience Card Styles */
-.work-experience-container {
-    display: block;
-}
-
-.work-card {
-    background-color: #444;
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-}
-
-.work-card h3 {
-    margin: 0;
-    font-size: 1.2em;
-}
-
-/* Education Card Styles */
-.education-card {
-    background-color: #444;
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Project Card Styles */
-.project-container {
-    display: flex;
-    gap: 20px;
-}
-
-.project-card {
-    background-color: #444;
-    padding: 20px;
-    width: 45%;
-    text-align: center;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
-    background-color: white;
+    background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border-radius: 10px;
+    border: 1px solid #888;
     width: 80%;
 }
 
-.dark-mode .modal-content {
-    background-color: #333;
-    color: white;
-}
-
 .close {
+    color: #aaa;
     float: right;
     font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #444;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer.light-mode {
+    background: #f0f0f0;
+    color: #333;
 }
