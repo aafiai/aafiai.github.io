@@ -108,4 +108,5 @@ section {
 /* Modal Styles */
 .modal {
     display: none; /* Hidden by default */
-    position: fixed;
+    position: fixed; 
+   
