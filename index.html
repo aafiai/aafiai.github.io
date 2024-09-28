@@ -32,14 +32,14 @@
         <h2>Work Experience</h2>
         <div class="work-experience-container">
             <div class="work-card" onclick="openModal('job1')">
-                <h3>Company Name 1</h3>
-                <p>Position Title 1</p>
-                <p class="date">Month Year - Month Year</p>
+                <span class="company-name">Company Name 1</span> | 
+                <span class="position-title">Position Title 1</span> | 
+                <span class="duration">Duration: Month Year - Month Year</span>
             </div>
             <div class="work-card" onclick="openModal('job2')">
-                <h3>Company Name 2</h3>
-                <p>Position Title 2</p>
-                <p class="date">Month Year - Month Year</p>
+                <span class="company-name">Company Name 2</span> | 
+                <span class="position-title">Position Title 2</span> | 
+                <span class="duration">Duration: Month Year - Month Year</span>
             </div>
             <!-- Add more work cards as needed -->
         </div>
@@ -127,16 +127,6 @@
                 modalTitle.textContent = 'Position Title 2';
                 modalDuration.textContent = 'Duration: Month Year - Month Year';
                 modalResponsibilities.textContent = 'Responsibilities: Briefly explain your role, key responsibilities, and achievements.';
-            }
-
-            // Set the modal background color based on the body class
-            const body = document.body;
-            if (body.classList.contains('dark-mode')) {
-                modal.querySelector(".modal-content").style.backgroundColor = "black"; // Black background in dark mode
-                modal.querySelector(".modal-content").style.color = "white"; // White text in dark mode
-            } else {
-                modal.querySelector(".modal-content").style.backgroundColor = "white"; // White background in light mode
-                modal.querySelector(".modal-content").style.color = "black"; // Black text in light mode
             }
 
             modal.style.display = "block"; // Show the modal
