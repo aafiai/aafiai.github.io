@@ -7,118 +7,146 @@ body {
 }
 
 header {
-    background-color: #1e1e1e; /* Dark header */
+    background-color: #1e1e1e;
     padding: 20px;
     text-align: center;
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
-nav ul li {
+nav li {
     display: inline;
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
-nav ul li a {
-    color: white;
+nav a {
+    color: #ffffff;
     text-decoration: none;
 }
 
 section {
     padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
 }
 
 footer {
-    background-color: #1e1e1e; /* Dark footer */
-    padding: 10px;
     text-align: center;
+    padding: 10px;
+    background-color: #1e1e1e;
 }
 
-/* Dark and Light Mode Styles */
-.dark-mode {
-    background-color: #121212; /* Dark background */
-    color: white; /* Light text */
+/* Light mode styles */
+body.light-mode {
+    background-color: white;
+    color: black;
 }
 
-.light-mode {
-    background-color: #ffffff; /* Light background */
-    color: black; /* Dark text */
+header.light-mode {
+    background-color: #f0f0f0;
 }
 
-/* Projects Section Styles */
-.projects-container {
+nav a.light-mode {
+    color: #000000;
+}
+
+section.light-mode {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+}
+
+footer.light-mode {
+    background-color: #f0f0f0;
+}
+
+/* Work Experience and Education styles */
+.work-experience-container, .education-container {
     display: flex;
-    flex-direction: column; /* Stack cards vertically */
-    align-items: center; /* Center cards */
-    gap: 20px; /* Space between cards */
+    flex-direction: column;
 }
 
-.project-card {
-    background: rgba(255, 255, 255, 0.1); /* Off-white for light mode */
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    width: 300px; /* Fixed width for cards */
-    text-align: left; /* Align text to the left */
+.work-card, .education-card {
+    background-color: #2c2c2c;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.dark-mode .project-card {
-    background: rgba(100, 100, 100, 0.9); /* Grey for dark mode */
+.work-card:hover, .education-card:hover {
+    background-color: #3a3a3a;
 }
 
-.project-card h3 {
-    margin: 0 0 10px; /* Space below the heading */
-    display: flex;
-    justify-content: space-between; /* Space between title and button */
-    align-items: center; /* Center vertically */
-}
-
-.project-details {
-    margin-top: 10px; /* Space above project details */
-}
-
-/* Modal Styles */
+/* Modal styles */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; 
-    z-index: 1000; /* Ensure modal is on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
-    background-color: #fefefe; /* White background */
-    margin: 15% auto; /* 15% from the top and centered */
+    background-color: #fefefe;
+    margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888; /* Border */
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-.dark-mode .modal-content {
-    background-color: #121212; /* Black background for dark mode */
-}
-
-.light-mode .modal-content {
-    background-color: #ffffff; /* White background for light mode */
+    border: 1px solid #888;
+    width: 80%;
 }
 
 .close {
-    color: #aaa; /* Grey color for the close button */
-    float: right; /* Align to the right */
-    font-size: 28px; /* Larger size */
-    font-weight: bold; /* Bold */
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black; /* Change color on hover */
-    text-decoration: none; /* No underline */
-    cursor: pointer; /* Pointer cursor */
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Project styles */
+.projects-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.project {
+    background-color: #2c2c2c;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.project-title {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.dropdown-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.project-details {
+    margin-top: 10px;
+}
+
+/* Light mode project styles */
+body.light-mode .project {
+    background-color: #f9f9f9;
+    color: black;
 }
