@@ -31,15 +31,15 @@
     <section id="work-experience">
         <h2>Work Experience</h2>
         <div class="work-experience-container">
-            <div class="work-card">
-                <h3>Job Title at Company Name</h3>
+            <div class="work-card" onclick="openModal('job1')">
+                <h3>Company Name 1</h3>
+                <p>Position Title 1</p>
                 <p class="date">Month Year - Month Year</p>
-                <p>Responsibilities: Briefly explain your role, key responsibilities, and achievements.</p>
             </div>
-            <div class="work-card">
-                <h3>Job Title at Company Name</h3>
+            <div class="work-card" onclick="openModal('job2')">
+                <h3>Company Name 2</h3>
+                <p>Position Title 2</p>
                 <p class="date">Month Year - Month Year</p>
-                <p>Responsibilities: Briefly explain your role, key responsibilities, and achievements.</p>
             </div>
             <!-- Add more work cards as needed -->
         </div>
@@ -56,6 +56,17 @@
     <footer>
         <p>&copy; <span id="year"></span> Aafia Iqbal</p>
     </footer>
+
+    <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-company"></h3>
+            <p id="modal-title"></p>
+            <p id="modal-duration"></p>
+            <p id="modal-responsibilities"></p>
+        </div>
+    </div>
 
     <script>
         // Dynamic year
@@ -96,7 +107,43 @@
                 themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon
             }
         };
+
+        // Function to open the modal
+        function openModal(job) {
+            const modal = document.getElementById("myModal");
+            const modalCompany = document.getElementById("modal-company");
+            const modalTitle = document.getElementById("modal-title");
+            const modalDuration = document.getElementById("modal-duration");
+            const modalResponsibilities = document.getElementById("modal-responsibilities");
+
+            if (job === 'job1') {
+                modalCompany.textContent = 'Company Name 1';
+                modalTitle.textContent = 'Position Title 1';
+                modalDuration.textContent = 'Month Year - Month Year';
+                modalResponsibilities.textContent = 'Responsibilities: Briefly explain your role, key responsibilities, and achievements.';
+            } else if (job === 'job2') {
+                modalCompany.textContent = 'Company Name 2';
+                modalTitle.textContent = 'Position Title 2';
+                modalDuration.textContent = 'Month Year - Month Year';
+                modalResponsibilities.textContent = 'Responsibilities: Briefly explain your role, key responsibilities, and achievements.';
+            }
+
+            modal.style.display = "block"; // Show the modal
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none"; // Hide the modal
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none"; // Hide the modal
+            }
+        }
     </script>
 </body>
 </html>
-
