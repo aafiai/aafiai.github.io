@@ -66,55 +66,33 @@ section {
     color: black; /* Dark section text */
 }
 
-/* Timeline Styles */
-.timeline {
-    position: relative;
-    max-width: 900px; /* Adjust the width as needed */
-    margin: auto;
-    padding: 20px 0;
+/* Work Experience Card Styles */
+.work-experience-container {
     display: flex;
-    justify-content: space-between; /* Space items evenly */
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: center; /* Center the cards */
+    gap: 20px; /* Space between cards */
 }
 
-.timeline-item {
-    flex: 1; /* Make items flexible */
-    margin: 0 10px; /* Space between items */
-    position: relative;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    top: 10px; /* Center the circle */
-    left: 50%; /* Center line */
-    transform: translateX(-50%);
-    width: 2px; /* Line width */
-    height: 100%; /* Full height of the item */
-    background-color: #4caf50; /* Green line */
-    z-index: 1; /* Behind content */
-}
-
-.timeline-content {
-    background: #f1f1f1; /* Light background for content */
+.work-card {
+    background: #f1f1f1; /* Light background for cards */
     padding: 20px;
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    position: relative; /* For the z-index */
-    z-index: 2; /* Above the line */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    width: 300px; /* Fixed width for cards */
     transition: transform 0.3s; /* Animation */
 }
 
-.timeline-item:hover .timeline-content {
+.work-card:hover {
     transform: scale(1.05); /* Scale on hover */
 }
 
-.timeline-content h3 {
-    margin: 0;
-    color: #333; /* Dark text color */
+.work-card h3 {
+    margin: 0 0 10px; /* Space below the heading */
 }
 
-.timeline-content p {
-    margin: 5px 0;
+.work-card p {
+    margin: 5px 0; /* Space between paragraphs */
 }
 
 .date {
