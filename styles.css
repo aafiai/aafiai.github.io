@@ -7,77 +7,34 @@ body {
 }
 
 header {
-    background-color: #1e1e1e;
+    background-color: #1e1e1e; /* Dark header */
     padding: 20px;
     text-align: center;
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
-nav li {
+nav ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
-nav a {
-    color: #ffffff;
+nav ul li a {
+    color: white;
     text-decoration: none;
 }
 
 section {
     padding: 20px;
-    margin: 20px 0;
-    border-radius: 5px;
 }
 
 footer {
+    background-color: #1e1e1e; /* Dark footer */
     text-align: center;
     padding: 10px;
-    background-color: #1e1e1e;
-}
-
-/* Light mode styles */
-body.light-mode {
-    background-color: white;
-    color: black;
-}
-
-header.light-mode {
-    background-color: #f0f0f0;
-}
-
-nav a.light-mode {
-    color: #000000;
-}
-
-section.light-mode {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-}
-
-footer.light-mode {
-    background-color: #f0f0f0;
-}
-
-/* Work Experience and Education styles */
-.work-experience-container, .education-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.work-card, .education-card {
-    background-color: #2c2c2c;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.work-card:hover, .education-card:hover {
-    background-color: #3a3a3a;
 }
 
 /* Modal styles */
@@ -102,51 +59,80 @@ footer.light-mode {
     width: 80%;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Project styles */
-.projects-container {
+/* Work Experience and Education styles */
+.work-experience-container, .education-container {
     display: flex;
     flex-direction: column;
 }
 
-.project {
+.work-card, .education-card {
     background-color: #2c2c2c;
     padding: 10px;
     margin: 5px 0;
     border-radius: 5px;
+    cursor: pointer;
+    display: flex; /* Align items in a row */
+    justify-content: space-between; /* Space between items */
+    width: 100%; /* Full width */
+}
+
+.work-card:hover, .education-card:hover {
+    background-color: #3a3a3a;
+}
+
+/* Adjust font sizes */
+.company-name {
+    font-size: 1.5em; /* Bigger font */
+    flex: 2; /* Flexible space */
+}
+
+.position-title {
+    font-size: 1.2em; /* Medium font */
+    flex: 2; /* Flexible space */
+}
+
+.duration {
+    font-size: 0.9em; /* Smaller font */
+    flex: 1; /* Flexible space */
+}
+
+/* Projects section styles */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of project titles */
+}
+
+.project-card {
+    background-color: #2c2c2c;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    width: calc(50% - 10px); /* Two projects per row */
 }
 
 .project-title {
-    display: inline-block;
-    margin-right: 10px;
+    font-size: 1.2em; /* Project title size */
+    margin: 0; /* Remove margin */
 }
 
-.dropdown-button {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
+/* Details button */
+.dropdown-btn {
+    margin-left: 10px; /* Space between title and button */
 }
 
-.project-details {
-    margin-top: 10px;
+/* Light mode styles */
+.light-mode {
+    background-color: white;
+    color: black;
 }
 
-/* Light mode project styles */
-body.light-mode .project {
-    background-color: #f9f9f9;
+.light-mode header,
+.light-mode footer {
+    background-color: #f1f1f1; /* Light header and footer */
+}
+
+/* Modal light mode styles */
+.light-mode .modal-content {
+    background-color: #f1f1f1;
     color: black;
 }
