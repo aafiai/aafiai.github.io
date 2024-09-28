@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aafia Iqbal</title>
+    <title>Aafia Iqbal's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap"> <!-- Roboto Slab -->
 </head>
 <body class="dark-mode"> <!-- Set default mode to dark -->
     <!-- Header Section -->
@@ -19,34 +20,30 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <h1>Welcome ! I am Aafia. </h1>
+        <h1>Welcome to My Portfolio</h1>
         <button id="themeToggle"><i class="fas fa-sun"></i></button> <!-- Sun icon -->
     </header>
 
     <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>I am Aafia, a results-driven data analyst with a strong background in optimizing operational efficiency across various industries. 
-            I have expertise in creating and managing dashboards using Excel and Tableau, improving key performance indicators through effective stakeholder collaboration. 
-            My previous experiences include product management at Hunger Station and data analysis at Merck Sharpe and Dohme, where I honed my skills in data visualization and reporting. 
-            With a Bachelor’s degree in Computer Science from BITS Pilani Dubai Campus, I am passionate about continuous learning and actively contribute to leadership programs and tech initiatives.</p>
+        <p>Hi, I am Aafia Iqbal, a passionate web developer and designer. I enjoy creating responsive and interactive websites, and I am always eager to learn new technologies!</p>
     </section>
 
     <!-- Work Experience Section -->
     <section id="work-experience">
-        <h2>Career</h2>
+        <h2>Work Experience</h2>
         <div class="work-experience-container">
             <div class="work-card" onclick="openModal('job1')">
-                <h3 class="company-name">Merck Sharpe and Dohme, Dubai, UAE</h3>
-                <p class="position-title">Data Analyst Intern, GCC Commercial Operations</p>
-                <p class="duration">Jul’21-Jan’22</p>
+                <h3 class="company-name">Company Name 1</h3>
+                <p class="position-title">Position Title 1</p>
+                <p class="duration">Month Year - Month Year</p>
             </div>
             <div class="work-card" onclick="openModal('job2')">
-                <h3 class="company-name">Hunger Station (Delivery Hero), Dubai, UAE</h3>
-                <p class="position-title">Product Intern, Subscriptions and MarTech</p>
-                <p class="duration">Sep’22- Dec’22</p>
+                <h3 class="company-name">Company Name 2</h3>
+                <p class="position-title">Position Title 2</p>
+                <p class="duration">Month Year - Month Year</p>
             </div>
-            <!-- Add more work cards as needed -->
         </div>
     </section>
 
@@ -54,14 +51,14 @@
     <section id="education">
         <h2>Education</h2>
         <div class="education-container">
-            <div class="education-card" onclick="openModal('degree1')">
-                <h3 class="degree-name">Computer Science Engineering</h3>
-                <p class="institution">Birla Institute of Technology and Sciences Pilani, Dubai Campus</p>
-                <p class="duration">2018-2022</p>
+            <div class="edu-card" onclick="openModal('degree1')">
+                <h3 class="degree-title">Degree Title 1</h3>
+                <p class="institution-name">Institution Name 1</p>
+                <p class="duration">Month Year - Month Year</p>
             </div>
-            <div class="education-card" onclick="openModal('degree2')">
-                <h3 class="degree-name">Degree Name 2</h3>
-                <p class="institution">Institution Name 2</p>
+            <div class="edu-card" onclick="openModal('degree2')">
+                <h3 class="degree-title">Degree Title 2</h3>
+                <p class="institution-name">Institution Name 2</p>
                 <p class="duration">Month Year - Month Year</p>
             </div>
         </div>
@@ -72,27 +69,22 @@
         <h2>Projects</h2>
         <div class="projects-container">
             <div class="project-card">
-                <h3 class="project-title">Project Title 1</h3>
-                <button class="dropdown-btn" onclick="toggleDetails('project1-details')">Details</button>
-                <div id="project1-details" class="project-details" style="display: none;">
-                    <p>Project details about Project 1.</p>
-                </div>
+                <h3>Project Title 1</h3>
+                <button class="dropdown-btn">Details</button>
+                <p class="project-details" style="display: none;">Details about Project 1</p>
             </div>
             <div class="project-card">
-                <h3 class="project-title">Online Shopping – RDBMS</h3>
-                <button class="dropdown-btn" onclick="toggleDetails('project2-details')">Details</button>
-                <div id="project2-details" class="project-details" style="display: none;">
-                    <p>Project details about Project 2.</p>
-                </div>
+                <h3>Project Title 2</h3>
+                <button class="dropdown-btn">Details</button>
+                <p class="project-details" style="display: none;">Details about Project 2</p>
             </div>
-            <!-- Add more project cards as needed -->
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Me</h2>
-        <p>Email: aafiaiqbal109.com</p>
+        <p>Email: youremail@example.com</p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/aafiaiqbal/" target="_blank">Aafia Iqbal</a></p>
     </section>
 
@@ -112,111 +104,6 @@
         </div>
     </div>
 
-    <script>
-        // Dynamic year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Smooth scrolling
-        const links = document.querySelectorAll('nav a');
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        themeToggle.onclick = function() {
-            const body = document.body;
-            const header = document.querySelector('header');
-            const footer = document.querySelector('footer');
-            const sections = document.querySelectorAll('section');
-
-            // Toggle classes for body, header, footer, and sections
-            body.classList.toggle('dark-mode');
-            body.classList.toggle('light-mode');
-            header.classList.toggle('dark-mode');
-            footer.classList.toggle('dark-mode');
-            sections.forEach(section => {
-                section.classList.toggle('dark-mode');
-            });
-
-            // Update button icon based on the current mode
-            if (body.classList.contains('dark-mode')) {
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon
-            } else {
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon
-            }
-        };
-
-        // Function to open the modal
-        function openModal(job) {
-            const modal = document.getElementById("myModal");
-            const modalCompany = document.getElementById("modal-company");
-            const modalTitle = document.getElementById("modal-title");
-            const modalDuration = document.getElementById("modal-duration");
-            const modalResponsibilities = document.getElementById("modal-responsibilities");
-
-            // Fill modal with job details
-            if (job === 'job1') {
-                modalCompany.textContent = 'Merck Sharpe and Dohme, Dubai, UAE';
-                modalTitle.textContent = 'Data Analyst Intern, GCC Commercial Operations';
-                modalDuration.textContent = 'Duration: July 2021 - January 2022';
-                modalResponsibilities.textContent = '● Generated UAE sales reports every alternate day by developing and implementing macros in Microsoft Excel, enhancing reporting
-efficiency and data accuracy.
-● Created monthly sales data for Gulf countries, integrating datasets from distributors and validating information for GCC sales
-dashboards, utilizing Microsoft Excel and PowerPoint to deliver actionable insights.
-● Support in processes such as GCC Sales Forecast and Rep Geo Mapping.
-● Administered and updated sales databases for Kuwait, Bahrain, and Qatar in Microsoft Access, facilitating efficient data management
-processes.
-● Formatted and prepared GCC distributor datasets for upload to the Data & Analytics platform, ensuring compliance with required
-specifications.
-Received Bonus as Commercial Operations Award Recipient.';
-            } else if (job === 'job2') {
-                modalCompany.textContent = 'Hunger Station (Delivery Hero), Dubai, UAE';
-                modalTitle.textContent = 'Product Intern, Subscriptions and MarTech';
-                modalDuration.textContent = 'Duration: Septemeber 2022 - December 2022';
-                modalResponsibilities.textContent = '● Assisted Senior Product Manager to conduct in-depth product research and manage the launch of new subscription features, ensuring
-alignment with market needs and business goals.
-● Managed and prioritized Jira tickets for feature development and bug resolution, while designing intuitive and user-friendly dashboards
-using Balsamiq to enhance product usability and tracking.
-● Conducted customer interviews in collaboration with UX researchers to gather actionable feedback on new subscription launches,
-leading to improved user satisfaction and product refinement.
-● Performed competitive analysis to identify market trends and opportunities, recommending enhancements to HungerStation’s menu,
-subscription model, and checkout process to boost user engagement and conversion rates.
-● Developed a Product research report on MarTech - Offer Communication highlighting key opportunities, challenges, and strategic
-recommendations to inform future product development and marketing initiatives.';
-            }
-
-            modal.style.display = "block"; // Show the modal
-        }
-
-        // Function to close the modal
-        function closeModal() {
-            const modal = document.getElementById("myModal");
-            modal.style.display = "none"; // Hide the modal
-        }
-
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById("myModal");
-            if (event.target == modal) {
-                modal.style.display = "none"; // Hide the modal
-            }
-        }
-
-        // Toggle project details
-        function toggleDetails(id) {
-            const details = document.getElementById(id);
-            if (details.style.display === "none" || details.style.display === "") {
-                details.style.display = "block";
-            } else {
-                details.style.display = "none";
-            }
-        }
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
