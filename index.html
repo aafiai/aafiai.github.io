@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
-        <h1>Aafia Iqbal</h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -16,29 +16,60 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <h1>Welcome to My Portfolio</h1>
     </header>
 
+    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>Computer Science Engineer .</p>
+        <p>Hi, I am [Your Name], a web developer and designer. I love creating websites and learning new technologies!</p>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects">
-        <h2>Projects</h2>
+        <h2>My Projects</h2>
         <div class="project">
             <h3>Project 1</h3>
-            <p>Description of your project.</p>
+            <p>Description of project 1. Briefly explain what you worked on, tools you used, etc.</p>
         </div>
-        <!-- More projects -->
+        <div class="project">
+            <h3>Project 2</h3>
+            <p>Description of project 2. Briefly explain what you worked on, tools you used, etc.</p>
+        </div>
+        <button id="alertButton">Click Me!</button>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: aafiaiqbal109@gmail.com</p>
+        <h2>Contact Me</h2>
+        <p>Email: youremail@example.com</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/your-profile/">Your LinkedIn</a></p>
     </section>
 
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 Aafia</p>
+        <p>&copy; <span id="year"></span> Your Name</p>
     </footer>
+
+    <script>
+        // Alert button
+        document.getElementById('alertButton').onclick = function() {
+            alert('Hello! This is an alert message!');
+        };
+
+        // Dynamic year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth scrolling
+        const links = document.querySelectorAll('nav a');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
