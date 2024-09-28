@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +38,6 @@
             <h3>Project 2</h3>
             <p>Description of project 2. Briefly explain what you worked on, tools you used, etc.</p>
         </div>
-        <button id="alertButton">Click Me!</button>
     </section>
 
     <!-- Contact Section -->
@@ -53,11 +53,6 @@
     </footer>
 
     <script>
-        // Alert button
-        document.getElementById('alertButton').onclick = function() {
-            alert('Hello! This is an alert message!');
-        };
-
         // Dynamic year
         document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -76,15 +71,25 @@
         const themeToggle = document.getElementById('themeToggle');
         themeToggle.onclick = function() {
             const body = document.body;
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+            const sections = document.querySelectorAll('section');
+
+            // Toggle classes for body, header, footer, and sections
             body.classList.toggle('dark-mode');
             body.classList.toggle('light-mode');
-            themeToggle.textContent = body.classList.contains('dark-mode') ? 'Switch to Light Mode' : 'Switch to Dark Mode';
-            // Update header and footer classes
-            document.querySelector('header').classList.toggle('dark-mode');
-            document.querySelector('footer').classList.toggle('dark-mode');
-            document.querySelectorAll('section').forEach(section => {
+            header.classList.toggle('dark-mode');
+            footer.classList.toggle('dark-mode');
+            sections.forEach(section => {
                 section.classList.toggle('dark-mode');
             });
+
+            // Update button text based on the current mode
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.textContent = 'Switch to Light Mode';
+            } else {
+                themeToggle.textContent = 'Switch to Dark Mode';
+            }
         };
     </script>
 </body>
