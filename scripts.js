@@ -14,43 +14,56 @@ links.forEach(link => {
 
 // Theme toggle functionality
 const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+const icon = themeToggle.querySelector('i');
+
+// Check if there's a saved theme in localStorage
+const savedTheme = localStorage.getItem('theme');
+
+// Apply saved theme (if any) or default to dark mode
+if (savedTheme) {
+    body.classList.remove('dark-mode', 'light-mode');
+    body.classList.add(savedTheme);
+    icon.classList.toggle('fa-sun', savedTheme === 'light-mode');
+    icon.classList.toggle('fa-moon', savedTheme === 'dark-mode');
+} else {
+    body.classList.add('dark-mode'); // Default to dark mode
+    icon.classList.add('fa-sun'); // Set sun icon (because dark mode is active)
+}
+
 themeToggle.onclick = function () {
-    const body = document.body;
+    // Toggle the dark and light mode classes
     body.classList.toggle('dark-mode');
     body.classList.toggle('light-mode');
+
+    // Toggle the icon
+    icon.classList.toggle('fa-sun');
+    icon.classList.toggle('fa-moon');
+
+    // Save the current theme in localStorage
+    const currentTheme = body.classList.contains('light-mode') ? 'light-mode' : 'dark-mode';
+    localStorage.setItem('theme', currentTheme);
 };
 
 // Modal functionality
-function openModal(job) {
+function openModal(jobId) {
     const modal = document.getElementById('myModal');
-    const company = document.getElementById('modal-company');
-    const title = document.getElementById('modal-title');
-    const duration = document.getElementById('modal-duration');
-    const responsibilities = document.getElementById('modal-responsibilities');
-
-    if (job === 'job1') {
-        company.textContent = 'Company Name 1';
-        title.textContent = 'Position Title 1';
-        duration.textContent = 'Month Year - Month Year';
-        responsibilities.textContent = 'Job Responsibilities 1';
-    } else if (job === 'job2') {
-        company.textContent = 'Company Name 2';
-        title.textContent = 'Position Title 2';
-        duration.textContent = 'Month Year - Month Year';
-        responsibilities.textContent = 'Job Responsibilities 2';
-    }
-
     modal.style.display = 'block';
+    // Fill modal content based on jobId
+    document.getElementById('modal-company').textContent = `Details for ${jobId}`;
 }
 
 function closeModal() {
-    document.getElementById('myModal').style.display = 'none';
+    const modal = document.getElementById('myModal');
+    modal.style.display = 'none';
 }
 
-// Project dropdown functionality
-document.querySelectorAll('.dropdown-btn').forEach(button => {
-    button.addEventListener('click', function () {
-        const details = this.nextElementSibling;
-        details.style.display = details.style.display === 'none' ? 'block' : 'none';
-    });
-});
+// Toggle Project Details
+function toggleDetails(projectId) {
+    const details = document.getElementById(projectId);
+    if (details.style.display === 'none' || details.style.display === '') {
+        details.style.display = 'block';
+    } else {
+        details.style.display = 'none';
+    }
+}
