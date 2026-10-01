@@ -36,7 +36,3 @@ paths like `assets/certs/matlab.jpg`, so moving or renaming files will break lin
 Edit any file directly on GitHub (click the file → pencil/edit icon → commit), or
 re-upload changed files the same way as step 3–5. GitHub Pages redeploys
 automatically within a minute or two of any commit.
-
-## Known gaps (as of this build)
-- Outage Movement Prediction has no GitHub link yet (not published).
-- Contact email is a placeholder (`f20180061d@bits-pilani.ac.in`) until a professional one is set up.
